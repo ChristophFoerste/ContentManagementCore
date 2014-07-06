@@ -31,8 +31,8 @@
                                     <div class="form-group">
                                         <label for="authGender"><?php echo $this->lang->line("adminProfile_label_gender"); ?></label><br />
                                         <?php
-                                        $formData = 'id="authGender" class="form-control"';
-                                        echo form_dropdown('admin_genderTypeID', $genderTypes, $user->admin_genderTypeID, $formData);
+                                            $formData = 'id="authGender" class="form-control"';
+                                            echo form_dropdown('admin_genderTypeID', $genderTypes, $user->admin_genderTypeID, $formData);
                                         ?>
                                     </div>
                                 </div>
