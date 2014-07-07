@@ -4,6 +4,7 @@ $lang['adminProfile_head_mainPage']             = "Benutzerkonto von";
 
 //tabs
 $lang['adminProfile_tab_authentication']        = "Login/Authentifizierung";
+$lang['adminProfile_tab_settings']              = "Einstellungen";
 
 //labels
 $lang['adminProfile_label_gender']              = "Anrede";

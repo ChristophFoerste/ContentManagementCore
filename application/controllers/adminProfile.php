@@ -83,12 +83,10 @@ class adminProfile extends CI_Controller {
         $this->load->library('upload', $uploadConfig);
         $this->upload->initialize($uploadConfig);
 
-        print_r($uploadConfig);
-
         if(!$this->upload->do_upload("profilePicture")){
-            print_r($this->upload->display_errors());
+            echo "error";
         } else {
-            echo "done";
+            echo "true";
         }
     }
 }

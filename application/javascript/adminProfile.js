@@ -4,7 +4,12 @@ $(document).ready(function(){
     $("#authProfileForm").dropzone({
         url: $("#authProfileForm").attr("data-fileUpload"),
         paramName: 'profilePicture',
-        previewsContainer: '.dropzone-previews'
+        previewsContainer: '.dropzone-previews',
+        success: function(file, response){
+            if(response == "true"){
+                location.reload();
+            }
+        }
     });
 
     $("#authProfilePicture").click(function(){

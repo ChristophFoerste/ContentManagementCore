@@ -19,7 +19,7 @@
     <div class="col-xs-12 col-sm-8">
         <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
             <li class="active"><a href="#authentication" data-toggle="tab"><?php echo $this->lang->line("adminProfile_tab_authentication"); ?></a></li>
-            <!--li><a href="#settings" data-toggle="tab">Einstellungen</a></li-->
+            <!--li><a href="#settings" data-toggle="tab"><?php echo $this->lang->line("adminProfile_tab_settings"); ?></a></li-->
         </ul>
         <div id="my-tab-content" class="tab-content">
             <div class="tab-pane active" id="authentication">
