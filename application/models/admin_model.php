@@ -42,6 +42,7 @@ class Admin_model extends CI_Model {
             $admin->genderTypeID = $row->admin_genderTypeID;
             $admin->email = $row->admin_email;
             $admin->permissions = $row->admin_permission;
+            $admin->password = md5($row->admin_password);
             $admin->settings->isPushmenuCollapsed = $row->adminSettings_pushMenuCollapsed;
             $admin->settings->bootstrapTheme = $row->adminSettings_bootstrapTheme;
             $admin->isLoggedIn = TRUE;

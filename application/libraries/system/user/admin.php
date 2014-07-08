@@ -17,6 +17,7 @@ class Admin
     public $email = NULL;
     public $isLoggedIn = FALSE;
     public $inactivityTimeout = 120;
+    public $password = NULL;
 
     /*##################################################################################################################
         constructor
@@ -27,6 +28,24 @@ class Admin
         getter
     ##################################################################################################################*/
     public function getFullname() { return $this->firstname." ".$this->lastname; }
+
+    /*##################################################################################################################
+        function checkPassword($password)
+
+        @summary    check password of admin
+        @access     public
+        @param      $password (type of string) - password to check
+
+        @return     boolean
+    ##################################################################################################################*/
+    public function checkPassword($password) {
+        $result = FALSE;
+        if(md5($password) === $this->password){
+            $result = TRUE;
+        }
+
+        return $result;
+    }
 
     /*##################################################################################################################
         function hasPermission($searchArray, $searchMethod)
