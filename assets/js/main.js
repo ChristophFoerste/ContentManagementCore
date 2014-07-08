@@ -29,7 +29,7 @@ $(document).ready(function(){
     });
 
     //make menu scrollable
-    if(appOptions.isScrollableMenu){
+    if(appOptions.isScrollableMenu && appOptions.isMobile){
         $('#menu').jScroll();
     }
 

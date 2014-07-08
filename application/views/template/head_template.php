@@ -19,6 +19,7 @@
         <script type="text/javascript">
             var isMobile = false;
             if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+                alert("mobil");
                 isMobile = true;
             }
 
