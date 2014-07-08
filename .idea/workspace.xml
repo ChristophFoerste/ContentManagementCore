@@ -26,7 +26,7 @@
       <file leaf-file-name="adminProfile.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/controllers/adminProfile.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="95" column="1" selection-start="4674" selection-end="4674" vertical-scroll-proportion="0.94055945" vertical-offset="1077" max-vertical-offset="1717">
+            <state line="23" column="45" selection-start="861" selection-end="861" vertical-scroll-proportion="0.68356645" vertical-offset="0" max-vertical-offset="1717">
               <folding />
             </state>
           </provider>
@@ -221,38 +221,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="membership" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ContentManagementCore" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="membership" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ContentManagementCore" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="application" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -271,29 +239,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="membership" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ContentManagementCore" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="template" />
+              <option name="myItemId" value="language" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -500,26 +446,6 @@
         <state line="67" column="44" selection-start="2887" selection-end="2887" vertical-scroll-proportion="0.0" vertical-offset="867" max-vertical-offset="1530" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/adminList.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1156" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/language/1/adminList_lang.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="590" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/language/2/adminList_lang.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="590" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/javascript/adminList.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="697" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/models/controlTable_model.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="94" column="32" selection-start="4322" selection-end="4322" vertical-scroll-proportion="0.63829786" vertical-offset="1238" max-vertical-offset="1802" />
@@ -651,7 +577,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/adminProfile.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="95" column="1" selection-start="4674" selection-end="4674" vertical-scroll-proportion="0.94055945" vertical-offset="1077" max-vertical-offset="1717">
+        <state line="23" column="45" selection-start="861" selection-end="861" vertical-scroll-proportion="0.68356645" vertical-offset="0" max-vertical-offset="1717">
           <folding />
         </state>
       </provider>
