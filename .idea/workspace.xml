@@ -59,19 +59,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="main.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/assets/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="57" selection-start="1424" selection-end="1424" vertical-scroll-proportion="0.111292966" vertical-offset="459" max-vertical-offset="1139">
+            <state line="31" column="57" selection-start="1424" selection-end="1424" vertical-scroll-proportion="0.0" vertical-offset="459" max-vertical-offset="1139">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="head_template.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="head_template.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/views/template/head_template.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="28" selection-start="1155" selection-end="1155" vertical-scroll-proportion="-5.1923075" vertical-offset="222" max-vertical-offset="850">
+            <state line="20" column="112" selection-start="1128" selection-end="1128" vertical-scroll-proportion="0.2017094" vertical-offset="222" max-vertical-offset="833">
               <folding />
             </state>
           </provider>
@@ -136,8 +136,8 @@
         <option value="$PROJECT_DIR$/application/language/2/adminProfile_lang.php" />
         <option value="$PROJECT_DIR$/application/controllers/adminProfile.php" />
         <option value="$PROJECT_DIR$/application/javascript/adminProfile.js" />
-        <option value="$PROJECT_DIR$/application/views/template/head_template.php" />
         <option value="$PROJECT_DIR$/assets/js/main.js" />
+        <option value="$PROJECT_DIR$/application/views/template/head_template.php" />
       </list>
     </option>
   </component>
@@ -642,16 +642,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/template/head_template.php">
+    <entry file="file://$PROJECT_DIR$/assets/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="28" selection-start="1155" selection-end="1155" vertical-scroll-proportion="-5.1923075" vertical-offset="222" max-vertical-offset="850">
+        <state line="31" column="57" selection-start="1424" selection-end="1424" vertical-scroll-proportion="0.0" vertical-offset="459" max-vertical-offset="1139">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/main.js">
+    <entry file="file://$PROJECT_DIR$/application/views/template/head_template.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="57" selection-start="1424" selection-end="1424" vertical-scroll-proportion="0.111292966" vertical-offset="459" max-vertical-offset="1139">
+        <state line="20" column="112" selection-start="1128" selection-end="1128" vertical-scroll-proportion="0.2017094" vertical-offset="222" max-vertical-offset="833">
           <folding />
         </state>
       </provider>
