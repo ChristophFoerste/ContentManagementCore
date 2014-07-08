@@ -32,13 +32,13 @@ class adminProfile extends CI_Controller {
         //create admin object
         $this->data['admin'] = $this->_admin;
         //setup pushMenu
-
-
+        /*
         $this->_pushMenu = new \System\Menu\PushMenu("Optionen");
         $this->_pushMenu->addItem("link", "MenuEintrag_1", NULL, "http://www.google.de", "globe", NULL, "zu google");
         $this->_pushMenu->addItem("link", "MenuEintrag_2", NULL, "#", "user", NULL, "Hinweis 2");
         $this->_pushMenu->addItem("link", "MenuEintrag_3", NULL, "#", "envelope", NULL, "Hinweis 3");
         $this->_pushMenu = $this->_pushMenu->getRenderedMenu();
+        */
 
         $this->data['pushMenu'] = $this->_pushMenu;
         $this->data['pushMenuCollapsed'] = $this->_pushMenuCollapsed;
@@ -53,6 +53,10 @@ class adminProfile extends CI_Controller {
         //get user image
         if(file_exists('./dynamicContents/images/admin/'.$this->_admin->username.'.jpg')){
             $profilePicturePath = base_url().'dynamicContents/images/admin/'.$this->_admin->username.'.jpg';
+        } elseif(file_exists('./dynamicContents/images/admin/'.$this->_admin->username.'.png')){
+            $profilePicturePath = base_url().'dynamicContents/images/admin/'.$this->_admin->username.'.png';
+        } elseif(file_exists('./dynamicContents/images/admin/'.$this->_admin->username.'.gif')){
+            $profilePicturePath = base_url().'dynamicContents/images/admin/'.$this->_admin->username.'.gif';
         } else {
             $profilePicturePath = base_url().'/assets/img/adminProfile/profilePicturePlaceholder.png';
         }
@@ -84,7 +88,7 @@ class adminProfile extends CI_Controller {
         $this->upload->initialize($uploadConfig);
 
         if(!$this->upload->do_upload("profilePicture")){
-            echo "error";
+            echo "error - ".$this->upload->display_errors();
         } else {
             echo "true";
         }
