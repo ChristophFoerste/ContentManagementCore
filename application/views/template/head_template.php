@@ -35,6 +35,7 @@
             };
         </script>
         <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/bootbox.min.js"></script>
         <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/jquery.multilevelpushmenu.js"></script>
         <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/jquery.scroll.min.js"></script>
         <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/dropzone.js"></script>
