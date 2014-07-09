@@ -1,43 +1,62 @@
-var Application = {
-    Request : {
-        Post : function(sender, url, data, resultFunction) {
-            //disable sender
-            if(sender != undefined) {
-                sender.attr('disabled', 'disabled');
-            }
+var Application = "";
 
-            //post data
-            $.ajax({
-                url : url,
-                data : data,
-                type : 'POST',
-                beforeSend : function(data){
-                    //enable sender
-                    if(sender != undefined) {
-                        sender.removeAttr('disabled');
-                    }
-                },
-                success : function(data){
-                    //enable sender
-                    if(sender != undefined) {
-                        sender.removeAttr('disabled');
-                    }
-                    resultFunction(data);
-                },
-                error : function() {
-                    //enable sender
-                    if(sender != undefined) {
-                        sender.removeAttr('disabled');
-                    }
-                    resultFunction("error");
+$(document).ready(function(){
+    Application = {
+        Request : {
+            Post : function(sender, url, data, resultFunction) {
+                //disable sender
+                if(sender != undefined) {
+                    sender.attr('disabled', 'disabled');
                 }
-            });
-        }
-    },
 
-    Dialog : {
-        Alert : function(title, message, buttonClass, buttonTitle) {
+                //post data
+                $.ajax({
+                    url : url,
+                    data : data,
+                    type : 'POST',
+                    beforeSend : function(data){
+                        //enable sender
+                        if(sender != undefined) {
+                            sender.removeAttr('disabled');
+                        }
+                    },
+                    success : function(data){
+                        //enable sender
+                        if(sender != undefined) {
+                            sender.removeAttr('disabled');
+                        }
+                        resultFunction(data);
+                    },
+                    error : function() {
+                        //enable sender
+                        if(sender != undefined) {
+                            sender.removeAttr('disabled');
+                        }
+                        resultFunction("error");
+                    }
+                });
+            }
+        },
 
+        Dialog : {
+            Alert : function(sender, title, message, buttonTitle) {
+                sender.attr('disabled', 'disabled');
+
+                var alertDialog = bootbox.dialog({
+                    message:        message,
+                    title:          title,
+                    closeButton:    false,
+                    buttons:        {
+                                        success:    {
+                                            label:      buttonTitle,
+                                            className:  'btn-primary',
+                                            callback:   function(){
+                                                sender.removeAttr('disabled');
+                                            }
+                                        }
+                                    }
+                });
+            }
         }
     }
-}
+});
