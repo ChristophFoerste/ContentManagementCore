@@ -90,15 +90,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="system_lang.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/language/2/system_lang.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="0" selection-start="0" selection-end="279" vertical-scroll-proportion="0.0" vertical-offset="34" max-vertical-offset="272">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FindManager">
