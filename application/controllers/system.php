@@ -44,4 +44,42 @@ class system extends CI_Controller {
 
         $this->load->view('template/template', $this->data);
     }
+
+    public function pluginBackupForm(){
+        $this->_viewData['admin'] = $this->_admin;
+        $this->_viewData['plugins'] = $this->ControlTable_model->getTable('qry_controlTable_plugin', array('pluginDescription_languageID' => (int)$this->_admin->languageID, 'plugin_isAvailable' => TRUE));
+
+        $this->load->view("system/system_plugin_backup_form", $this->_viewData);
+    }
+
+    public function pluginActivationForm(){
+        $this->_viewData['admin'] = $this->_admin;
+        $this->_viewData['plugins'] = $this->ControlTable_model->getTable('qry_controlTable_plugin', array('pluginDescription_languageID' => (int)$this->_admin->languageID));
+
+        $this->load->view("system/system_plugin_activation_form", $this->_viewData);
+    }
+
+    public function updateActivePlugins(){
+        $plugins = $this->ControlTable_model->getTable('qry_controlTable_plugin', array('pluginDescription_languageID' => (int)$this->_admin->languageID));
+        $this->load->model('System_model');
+
+        $result = TRUE;
+        foreach($plugins as $plugin){
+            $dataArray = array();
+            $dataArray['plugin_isAvailable'] = 0;
+            if(isset($_POST[$plugin->pluginID]) && $_POST[$plugin->pluginID] === "true"){
+                $dataArray['plugin_isAvailable'] = 1;
+            }
+
+            if(!$this->System_model->updatePlugin($plugin->pluginID, $dataArray)){
+                $result = FALSE;
+            }
+        }
+
+        if($result) {
+            echo "true";
+        } else {
+            echo "false";
+        }
+    }
 }

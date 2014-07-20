@@ -38,23 +38,60 @@ $(document).ready(function(){
             }
         },
 
-        Dialog : {
-            Alert : function(sender, title, message, buttonTitle) {
+        Popup : {
+            Alert : function(sender) {
                 sender.attr('disabled', 'disabled');
 
-                var alertDialog = bootbox.dialog({
-                    message:        message,
-                    title:          title,
+                var alertDialog = bootbox.alert({
+                    message:        sender.attr('data-dialogMessage'),
+                    title:          sender.attr('data-dialogTitle'),
                     closeButton:    false,
-                    buttons:        {
-                                        success:    {
-                                            label:      buttonTitle,
-                                            className:  'btn-primary',
-                                            callback:   function(){
-                                                sender.removeAttr('disabled');
-                                            }
-                                        }
+                    callback:       function(){
+                                        sender.removeAttr("disabled");
                                     }
+                });
+            },
+
+            Dialog : function(sender, successFunction) {
+                sender.attr('disabled', 'disabled');
+
+                $.ajax({
+                    url:        sender.attr('data-requestURL'),
+                    type:       'POST',
+                    beforeSend: function(data){
+                                    /*do something before sending ajax-request*/
+                                },
+                    success:    function(data){
+                                    var dialog = bootbox.dialog({
+                                        title:          sender.attr('data-dialogTitle'),
+                                        message:        data,
+                                        closeButton:    false,
+                                        buttons:        {
+                                                            'cancel': {
+                                                                label:      sender.attr('data-dialogButtonCancelLabel'),
+                                                                className:  'btn-default',
+                                                                callback:   function(){
+                                                                    sender.removeAttr('disabled');
+                                                                }
+                                                            },
+                                                            'success': {
+                                                                label:      sender.attr('data-dialogButtonSuccessLabel'),
+                                                                className:  'btn-primary',
+                                                                callback:   function(){
+                                                                    successFunction();
+                                                                    sender.removeAttr('disabled');
+                                                                }
+                                                            }
+                                                        }
+                                    });
+                                },
+                    error:      function(data){
+                                    if(appOptions.debug){
+                                        console.log(data);
+                                        alert("error occured, please look at firebug console");
+                                    }
+                                    sender.removeAttr('disabled');
+                                }
                 });
             }
         }
