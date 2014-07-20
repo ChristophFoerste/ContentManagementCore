@@ -106,14 +106,17 @@
                                 <div class="col-xs-12 col-sm-6">
                                     <div class="form-group">
                                         <label for="authEmail"><?php echo $this->lang->line("adminProfile_label_email"); ?></label><br />
-                                        <?php echo form_input(array(
-                                            'name'          => 'admin_email',
-                                            'id'            => 'authEmail',
-                                            'value'         => $user->admin_email,
-                                            'maxlength'     => 100,
-                                            'class'         => 'form-control',
-                                            'type'          => 'text'
-                                        )); ?>
+                                        <div class="input-group">
+                                            <?php echo form_input(array(
+                                                'name'          => 'admin_email',
+                                                'id'            => 'authEmail',
+                                                'value'         => $user->admin_email,
+                                                'maxlength'     => 100,
+                                                'class'         => 'form-control',
+                                                'type'          => 'text'
+                                            )); ?>
+                                            <span class="input-group-addon"><i class="fa fa-fw fa-envelope"></i></span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
