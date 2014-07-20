@@ -56,12 +56,14 @@ class ControlTable_model extends CI_Model {
         @param      $arrWhere (type of string) - which entries should be displayed (SQL WHERE-clause)
         @return     array of mixed objects
     ##################################################################################################################*/
-    public function getTable($table = NULL, $arrWhere) {
+    public function getTable($table = NULL, $arrWhere = NULL) {
         if($table === NULL) {
             return NULL;
         } else {
             $this->db->select("*");
-            $this->db->where($arrWhere);
+            if($arrWhere != NULL) {
+                $this->db->where($arrWhere);
+            }
             $query = $this->db->get($table);
             $query = $query->result();
 

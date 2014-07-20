@@ -5,25 +5,36 @@
 </div>
 
 <div class="row">
-    <div class="col-xs-12 col-sm-4 col-md-3">
+    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-3">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <strong><?php echo $this->lang->line('system_option_activePlugins');?></strong>
+            </div>
+            <div class="panel-body">
+                <p style="text-align: justify;"><small><?php echo $this->lang->line("system_hint_activePlugins"); ?></p></small></p>
+                <button class="btn btn-success btn-block" name="pluginActivation" type="button"  data-dialogTitle="<?php echo $this->lang->line("system_dialog_pluginActivate_dialogTitle"); ?>" data-requestURL="<?php echo base_url(); ?>index.php/system/pluginActivationForm/" data-dialogButtonCancelLabel="<?php echo $this->lang->line("system_dialog_pluginActivate_buttonLabelCancel"); ?>" data-dialogButtonSuccessLabel="<?php echo $this->lang->line("system_dialog_pluginActivate_buttonLabelSave"); ?>"><?php echo $this->lang->line('system_button_activePlugins'); ?></button>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-3">
         <div class="panel panel-default">
             <div class="panel-heading">
                 <strong><?php echo $this->lang->line('system_option_backup');?></strong>
             </div>
             <div class="panel-body">
                 <p style="text-align: justify;"><small><?php echo $this->lang->line("system_hint_backup"); ?></p></small></p>
-                <button class="btn btn-success" name="pluginBackup" data-dialogTitle="<?php echo $this->lang->line("system_dialog_backupPlugin_dialogTitle"); ?>" data-dialogMessage="<?php echo $this->lang->line("system_dialog_backupPlugin_dialogMessage"); ?>" data-buttonLabel="<?php echo $this->lang->line("system_dialog_backupPlugin_buttonLabel"); ?>" style="width: 100%;" type="button"><?php echo $this->lang->line('system_button_backup'); ?></button>
+                <button class="btn btn-success btn-block" name="pluginBackup" type="button" data-dialogTitle="<?php echo $this->lang->line("system_dialog_pluginBackup_dialogTitle"); ?>" data-requestURL="<?php echo base_url(); ?>index.php/system/pluginBackupForm/" data-dialogButtonCancelLabel="<?php echo $this->lang->line("system_dialog_pluginBackup_buttonLabelCancel"); ?>" data-dialogButtonSuccessLabel="<?php echo $this->lang->line("system_dialog_pluginBackup_buttonLabelSave"); ?>"><?php echo $this->lang->line('system_button_backup'); ?></button>
             </div>
         </div>
     </div>
-    <div class="col-xs-12 col-sm-4 col-md-3">
+    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-3">
         <div class="panel panel-default">
             <div class="panel-heading">
                 <strong><?php echo $this->lang->line('system_option_installPlugin');?></strong>
             </div>
             <div class="panel-body">
                 <p style="text-align: justify;"><small><?php echo $this->lang->line("system_hint_installPlugin"); ?></p></small></p>
-                <button class="btn btn-success" style="width: 100%;" type="button"><?php echo $this->lang->line('system_button_installPlugin'); ?></button>
+                <button class="btn btn-warning btn-block" name="pluginUpdate" data-dialogMessage="this option is deactivated" data-dialogTitle="not working" type="button"><?php echo $this->lang->line('system_button_installPlugin'); ?></button>
             </div>
         </div>
     </div>
