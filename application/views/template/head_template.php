@@ -11,6 +11,7 @@
         <link href="" rel="publisher">
         <link rel="icon" href="favicon.png" type="image/x-icon">
         <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/bootstrap-switch.min.css">
         <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/font-awesome.min.css">
         <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/jquery.multilevelpushmenu.css">
         <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/style.css">
@@ -36,6 +37,7 @@
         </script>
         <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/bootbox.min.js"></script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/bootstrap-switch.min.js"></script>
         <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/jquery.multilevelpushmenu.js"></script>
         <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/jquery.scroll.min.js"></script>
         <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/dropzone.js"></script>
