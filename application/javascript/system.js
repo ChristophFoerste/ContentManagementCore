@@ -2,14 +2,17 @@ $(document).ready(function(){
     /*load form for creating a backup of an installed plugin*/
     $(document).off('click', 'button[name=pluginBackup]').on('click', 'button[name=pluginBackup]', function(){
         Application.Popup.Dialog($(this), function(){
-            alert("do something on success");
+            /*Post data of form to script and handle response*/
+            Application.Request.Post(undefined, $('#pluginBackupForm').attr('data-requestURL'), $('#pluginBackupForm').serialize(), function(data){
+                Application.Popup.Hint(data);
+            });
         });
     });
 
     /*load form for (de-)activating plugins in global system*/
     $(document).off('click', 'button[name=pluginActivation]').on('click', 'button[name=pluginActivation]', function(){
         Application.Popup.Dialog($(this), function(){
-            alert($('#pluginActivationForm').attr('data-requestURL'));
+            /*Post data of form to script and handle response*/
             Application.Request.Post(undefined, $('#pluginActivationForm').attr('data-requestURL'), $('#pluginActivationForm').serialize(), function(data){
                 if(data == "true"){
                     location.reload();

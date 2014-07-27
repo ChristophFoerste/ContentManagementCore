@@ -52,6 +52,14 @@ $(document).ready(function(){
                 });
             },
 
+            Hint : function(message) {
+
+                var alertDialog = bootbox.alert({
+                    message:        message,
+                    closeButton:    false
+                });
+            },
+
             Dialog : function(sender, successFunction) {
                 sender.attr('disabled', 'disabled');
 

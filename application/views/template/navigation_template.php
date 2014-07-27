@@ -13,7 +13,7 @@
     <div class="collapse navbar-collapse" id="navbar-collapse-1">
         <ul class="nav navbar-nav">
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-fw <?php echo $currentPlugin->plugin_fontawesomeIcon; ?>"></i><?php echo $currentPlugin->pluginDescription_name; ?> <b class="caret"></b></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-fw <?php echo $currentPlugin->plugin_fontawesomeIcon; ?>"></i> <?php echo $currentPlugin->pluginDescription_name; ?> <b class="caret"></b></a>
                 <ul class="dropdown-menu">
                     <?php
                         $pluginManager = new \System\Plugin\Manager();

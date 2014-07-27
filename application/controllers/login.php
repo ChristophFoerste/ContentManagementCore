@@ -74,7 +74,7 @@ class login extends CI_Controller {
             $row = $result[0];
             $data = array('admin_sessionToken' => $this->session->userdata('session_id'),
                           'admin_userAgent' => $this->session->userdata('user_agent'),
-                          'admin_lastActive' => date("d.m.Y h:i:s"));
+                          'admin_lastActive' => date("d.m.Y H:i:s"));
             if($this->admin_model->updateAdmin($row->adminID, $data)) {
                 $this->data['admin'] = NULL;
                 echo "true";
@@ -94,7 +94,7 @@ class login extends CI_Controller {
         @return     void
     ##################################################################################################################*/
     public function logout() {
-        $data = array('admin_sessionToken' => NULL, 'admin_lastActive' => date("d.m.Y h:i:s"));
+        $data = array('admin_sessionToken' => NULL, 'admin_lastActive' => date("d.m.Y H:i:s"));
         $this->session->sess_destroy();
         if($this->admin_model->updateAdmin($this->_admin->ID, $data)) {
             $this->index(TRUE);

@@ -8,10 +8,10 @@
             if($plugin->plugin_isAvailable)
                 $checked = 'checked="checked"';
             ?>
-            <div class="col-xs-9 text-left">
+            <div class="col-xs-8 text-left">
                 <label for="pluginActivation_<?php echo $plugin->pluginID;?>"><?php echo $plugin->pluginDescription_name; ?></label>
             </div>
-            <div class="col-xs-3 text-right">
+            <div class="col-xs-4 text-right">
                 <input type="checkbox" id="pluginActivation_<?php echo $plugin->pluginID;?>" name="<?php echo $plugin->pluginID;?>" class="form-control pluginSwitch" value="true" <?php echo $checked;?>>
             </div>
         <?php

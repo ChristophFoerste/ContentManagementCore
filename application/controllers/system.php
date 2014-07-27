@@ -23,6 +23,8 @@ class system extends CI_Controller {
 
         //load necessary files of plugin (js)
         $this->data['javaScriptFileName'] = get_class($this);
+        //load config file
+        $this->config->load('config_'.get_class($this), FALSE, FALSE);
         //get current plugin name
         $this->data['currentPlugin'] = $this->ControlTable_model->getPluginName(get_class($this), $this->_admin->languageID);
         //get list of available plugins
@@ -37,6 +39,13 @@ class system extends CI_Controller {
         $this->data['pushMenuCollapsed'] = $this->_pushMenuCollapsed;
     }
 
+/*
+ * Create standard output page of controller
+ *
+ * @access public
+ *
+ * return html
+ */
     public function index() {
         $this->_viewData['admin'] = $this->_admin;
 
@@ -45,22 +54,44 @@ class system extends CI_Controller {
         $this->load->view('template/template', $this->data);
     }
 
+/*
+ * Create output for dialog content of form for creating a backup of a system extension
+ *
+ * @access public
+ *
+ * return html
+ */
     public function pluginBackupForm(){
         $this->_viewData['admin'] = $this->_admin;
-        $this->_viewData['plugins'] = $this->ControlTable_model->getTable('qry_controlTable_plugin', array('pluginDescription_languageID' => (int)$this->_admin->languageID, 'plugin_isAvailable' => TRUE));
+        $this->_viewData['plugins'] = $this->ControlTable_model->getTable('qry_controlTable_plugin', array('pluginDescription_languageID' => (int)$this->_admin->languageID));
 
         $this->load->view("system/system_plugin_backup_form", $this->_viewData);
     }
 
+/*
+ * Create output for dialog content of form for (de-)activating system extension
+ *
+ * @access public
+ *
+ * return html
+ */
     public function pluginActivationForm(){
         $this->_viewData['admin'] = $this->_admin;
-        $this->_viewData['plugins'] = $this->ControlTable_model->getTable('qry_controlTable_plugin', array('pluginDescription_languageID' => (int)$this->_admin->languageID));
+        $this->_viewData['plugins'] = $this->ControlTable_model->getTable('qry_controlTable_plugin', array('pluginDescription_languageID' => (int)$this->_admin->languageID, 'plugin_isEditable' => TRUE));
 
         $this->load->view("system/system_plugin_activation_form", $this->_viewData);
     }
 
+/*
+ * Handle request of plugin activation form
+ * update all system extensions by checking activation status
+ *
+ * @access public
+ *
+ * return string representation of true or false
+ */
     public function updateActivePlugins(){
-        $plugins = $this->ControlTable_model->getTable('qry_controlTable_plugin', array('pluginDescription_languageID' => (int)$this->_admin->languageID));
+        $plugins = $this->ControlTable_model->getTable('qry_controlTable_plugin', array('pluginDescription_languageID' => (int)$this->_admin->languageID, 'plugin_isEditable' => TRUE));
         $this->load->model('System_model');
 
         $result = TRUE;
@@ -80,6 +111,74 @@ class system extends CI_Controller {
             echo "true";
         } else {
             echo "false";
+        }
+    }
+
+/*
+ * Handle request of plugin activation form
+ * put all neccessary files of extension into a zip file and place it on the server in a a backup folder
+ *
+ * @access public
+ *
+ * return string representation of true or false
+ */
+    public function createPluginBackup(){
+        $fileHelper = new \System\Data\fileHelper();
+        if($fileHelper->countFiles($this->config->item("plugin_pathBackup"), array('zip')) <= $this->config->item("plugin_maxBackupCount")){
+            $plugin = $_POST['pluginName'];
+            $archivePath = $this->config->item("plugin_pathBackup").$plugin.date('_Ymd_His').'.zip';
+            $this->load->library('zip');
+            //check controller
+            $path = './application/controllers/'.$plugin.'.php';
+            if(file_exists($path)){
+                $content = file_get_contents($path);
+                $this->zip->add_data('controllers/'.$plugin.'.php', $content);
+            }
+            //check javascript
+            $path = './application/javascript/'.$plugin.'.js';
+            if(file_exists($path)){
+                $content = file_get_contents($path);
+                $this->zip->add_data('javascript/'.$plugin.'.js', $content);
+            }
+            //check model
+            $path = './application/models/'.$plugin.'_model.php';
+            if(file_exists($path)){
+                $content = file_get_contents($path);
+                $this->zip->add_data('models/'.$plugin.'_model.php', $content);
+            }
+            //check views
+            $path = './application/views/'.$plugin.'/';
+            if(is_dir($path)){
+                $this->zip->read_dir($path, FALSE);
+            }
+            //check config
+            $path = './application/config/config_'.$plugin.'.php';
+            if(file_exists($path)){
+                $content = file_get_contents($path);
+                $this->zip->add_data('config/config_'.$plugin.'.php', $content);
+            }
+            //check languages
+            $this->zip->add_dir('language');
+            if ($dirHandle = opendir('./application/language')) {
+                while (($dir = readdir($dirHandle)) !== false){
+                    if (!in_array($dir, array('.', '..')) && is_dir('./application/language/'.$dir)){
+                        if(file_exists('./application/language/'.$dir.'/'.$plugin.'_lang.php')){
+                            $content = file_get_contents('./application/language/'.$dir.'/'.$plugin.'_lang.php');
+                            $this->zip->add_data('language/'.$dir.'/'.$plugin.'_lang.php', $content);
+                        }
+                    }
+                }
+            }
+
+            if($this->zip->archive($archivePath)){
+                $this->zip->clear_data();
+                echo $this->lang->line('system_hint_pluginBackupCreated');
+            } else {
+                $this->zip->clear_data();
+                echo $this->lang->line('system_error_pluginBackupCreated');
+            }
+        } else {
+            echo $this->lang->line('system_error_pluginBackupNumberOfFilesExceed');
         }
     }
 }
