@@ -181,4 +181,40 @@ class system extends CI_Controller {
             echo $this->lang->line('system_error_pluginBackupNumberOfFilesExceed');
         }
     }
+
+    /*
+     * Create output for dialog content of form for (de-)activating system extension
+     *
+     * @access public
+     *
+     * return html
+     */
+    public function pluginInstallForm(){
+        $this->_viewData['admin'] = $this->_admin;
+
+        $this->load->view("system/system_plugin_install_form", $this->_viewData);
+    }
+
+/*
+ * install or update plugin
+ *
+ *
+ * return string representation of true or false
+ */
+    public function uploadPlugin(){
+        $uploadConfig['file_name'] = 'pluginTemp.zip';
+        $uploadConfig['upload_path'] = "./dynamicContents/temp/";
+        $uploadConfig['allowed_types'] = "zip";
+        $uploadConfig['max_size'] = 1;
+        $uploadConfig['overwrite'] = TRUE;
+
+        $this->load->library('upload', $uploadConfig);
+        $this->upload->initialize($uploadConfig);
+
+        if(!$this->upload->do_upload("pluginArchive")){
+            echo "error - ".$this->upload->display_errors();
+        } else {
+            echo "true";
+        }
+    }
 }

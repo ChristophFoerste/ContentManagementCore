@@ -28,6 +28,11 @@ $(document).ready(function(){
 
     /*load form for updating an installed plugin*/
     $(document).off('click', 'button[name=pluginUpdate]').on('click', 'button[name=pluginUpdate]', function(){
-        Application.Popup.Alert($(this));
+        Application.Popup.Dialog($(this), function(){});
+    });
+
+    /*wrap function of selecting a file in install plugin dialog*/
+    $(document).off('click', 'button[name=selectPluginArchive]').on('click', 'button[name=selectPluginArchive]', function(){
+        $('input[name=pluginArchive]').click();
     });
 });

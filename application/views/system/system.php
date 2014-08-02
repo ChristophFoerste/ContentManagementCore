@@ -34,7 +34,7 @@
             </div>
             <div class="panel-body">
                 <p style="text-align: justify;"><small><?php echo $this->lang->line("system_hint_installPlugin"); ?></p></small></p>
-                <button class="btn btn-warning btn-block" name="pluginUpdate" data-dialogMessage="this option is deactivated" data-dialogTitle="not working" type="button"><?php echo $this->lang->line('system_button_installPlugin'); ?></button>
+                <button class="btn btn-warning btn-block" name="pluginUpdate" type="button" data-dialogTitle="<?php echo $this->lang->line('system_dialog_pluginInstallation_dialogTitle');?>" data-requestURL="<?php echo base_url(); ?>index.php/system/pluginInstallForm/" data-dialogButtonCancelLabel="<?php echo $this->lang->line("system_dialog_pluginInstallation_buttonLabelCancel"); ?>" data-dialogButtonSuccessLabel="<?php echo $this->lang->line("system_dialog_pluginInstallation_buttonLabelSave"); ?>"><?php echo $this->lang->line('system_button_installPlugin'); ?></button>
             </div>
         </div>
     </div>

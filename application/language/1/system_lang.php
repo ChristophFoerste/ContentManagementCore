@@ -34,4 +34,11 @@ $lang['system_dialog_pluginActivate_dialogTitle']           = 'Erweiterung (de-)
 $lang['system_dialog_pluginActivate_buttonLabelCancel']     = 'abbrechen';
 $lang['system_dialog_pluginActivate_buttonLabelSave']       = 'speichern';
 
+//dialog install plugin
+$lang['system_dialog_pluginInstallation_dialogTitle']       = 'Erweiterung installieren';
+$lang['system_dialog_pluginInstallation_actionDescription'] = 'Nach Auswahl der Erweiterung und einem Klick auf die "installieren"-Schaltfläche, wird die ausgewählte *.zip-Datei auf den Server geladen und installiert.';
+$lang['system_dialog_pluginInstallation_buttonLabelChoose'] = 'Datei auswählen';
+$lang['system_dialog_pluginInstallation_buttonLabelSave']   = 'installieren';
+$lang['system_dialog_pluginInstallation_buttonLabelCancel'] = 'abbrechen';
+
 ?>
