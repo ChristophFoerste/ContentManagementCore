@@ -26,7 +26,7 @@ $lang['system_button_activePlugins']                        = 'Show list of exte
 $lang['system_dialog_pluginBackup_dialogTitle']             = 'Create Backup';
 $lang['system_dialog_pluginBackup_actionDescription']       = 'After selecting a plugin and clicking the "create Backu"-button, a backup with current timestamp will be stored on the server.';
 $lang['system_dialog_pluginBackup_buttonLabelCancel']       = 'Cancel';
-$lang['system_dialog_pluginBackup_buttonLabelSave']         = 'Create backup';
+$lang['system_dialog_pluginBackup_buttonLabelSave']         = 'Create Backup';
 $lang['system_dialog_pluginBackup_labelExtension']          = 'Extension';
 
 //dialog (de-)activate plugins
@@ -37,7 +37,7 @@ $lang['system_dialog_pluginActivate_buttonLabelSave']       = 'Save';
 //dialog install plugin
 $lang['system_dialog_pluginInstallation_dialogTitle']       = 'Install Plugin';
 $lang['system_dialog_pluginInstallation_actionDescription'] = 'After selecting a plugin and clicking the "create Backu"-button, the selected *.zip-file will be uploaded and installed to the server ';
-$lang['system_dialog_pluginInstallation_buttonLabelChoose'] = 'Select file';
+$lang['system_dialog_pluginInstallation_buttonLabelChoose'] = 'Select File';
 $lang['system_dialog_pluginInstallation_buttonLabelSave']   = 'Install';
 $lang['system_dialog_pluginInstallation_buttonLabelCancel'] = 'Cancel';
 

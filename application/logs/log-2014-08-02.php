@@ -1190,3 +1190,341 @@ DEBUG - 2014-08-02 17:32:00 --> Config file loaded: application/config/config_sy
 DEBUG - 2014-08-02 17:32:00 --> File loaded: application/views/system/system_plugin_install_form.php
 DEBUG - 2014-08-02 17:32:00 --> Final output sent to browser
 DEBUG - 2014-08-02 17:32:00 --> Total execution time: 0.5439
+DEBUG - 2014-08-02 17:34:53 --> Config Class Initialized
+DEBUG - 2014-08-02 17:34:53 --> Hooks Class Initialized
+DEBUG - 2014-08-02 17:34:53 --> Utf8 Class Initialized
+DEBUG - 2014-08-02 17:34:53 --> UTF-8 Support Enabled
+DEBUG - 2014-08-02 17:34:53 --> URI Class Initialized
+DEBUG - 2014-08-02 17:34:53 --> Router Class Initialized
+DEBUG - 2014-08-02 17:34:53 --> Output Class Initialized
+DEBUG - 2014-08-02 17:34:53 --> Security Class Initialized
+DEBUG - 2014-08-02 17:34:53 --> Input Class Initialized
+DEBUG - 2014-08-02 17:34:53 --> Global POST and COOKIE data sanitized
+DEBUG - 2014-08-02 17:34:53 --> Language Class Initialized
+DEBUG - 2014-08-02 17:34:53 --> Loader Class Initialized
+DEBUG - 2014-08-02 17:34:53 --> Helper loaded: url_helper
+DEBUG - 2014-08-02 17:34:53 --> Helper loaded: form_helper
+DEBUG - 2014-08-02 17:34:53 --> Database Driver Class Initialized
+DEBUG - 2014-08-02 17:34:53 --> Session Class Initialized
+DEBUG - 2014-08-02 17:34:53 --> Helper loaded: string_helper
+DEBUG - 2014-08-02 17:34:53 --> Session routines successfully run
+DEBUG - 2014-08-02 17:34:53 --> Model Class Initialized
+DEBUG - 2014-08-02 17:34:53 --> Model Class Initialized
+DEBUG - 2014-08-02 17:34:53 --> Model Class Initialized
+DEBUG - 2014-08-02 17:34:53 --> Controller Class Initialized
+DEBUG - 2014-08-02 17:34:53 --> Language file loaded: language/1/application_lang.php
+DEBUG - 2014-08-02 17:34:53 --> Language file loaded: language/1/system_lang.php
+DEBUG - 2014-08-02 17:34:53 --> Config file loaded: application/config/config_system.php
+DEBUG - 2014-08-02 17:34:53 --> File loaded: application/views/system/system_plugin_install_form.php
+DEBUG - 2014-08-02 17:34:53 --> Final output sent to browser
+DEBUG - 2014-08-02 17:34:53 --> Total execution time: 0.5478
+DEBUG - 2014-08-02 17:35:41 --> Config Class Initialized
+DEBUG - 2014-08-02 17:35:41 --> Hooks Class Initialized
+DEBUG - 2014-08-02 17:35:41 --> Utf8 Class Initialized
+DEBUG - 2014-08-02 17:35:41 --> UTF-8 Support Enabled
+DEBUG - 2014-08-02 17:35:41 --> URI Class Initialized
+DEBUG - 2014-08-02 17:35:41 --> Router Class Initialized
+DEBUG - 2014-08-02 17:35:41 --> Output Class Initialized
+DEBUG - 2014-08-02 17:35:41 --> Security Class Initialized
+DEBUG - 2014-08-02 17:35:41 --> Input Class Initialized
+DEBUG - 2014-08-02 17:35:41 --> Global POST and COOKIE data sanitized
+DEBUG - 2014-08-02 17:35:41 --> Language Class Initialized
+DEBUG - 2014-08-02 17:35:41 --> Loader Class Initialized
+DEBUG - 2014-08-02 17:35:41 --> Helper loaded: url_helper
+DEBUG - 2014-08-02 17:35:41 --> Helper loaded: form_helper
+DEBUG - 2014-08-02 17:35:41 --> Database Driver Class Initialized
+DEBUG - 2014-08-02 17:35:41 --> Session Class Initialized
+DEBUG - 2014-08-02 17:35:41 --> Helper loaded: string_helper
+DEBUG - 2014-08-02 17:35:41 --> Session routines successfully run
+DEBUG - 2014-08-02 17:35:41 --> Model Class Initialized
+DEBUG - 2014-08-02 17:35:41 --> Model Class Initialized
+DEBUG - 2014-08-02 17:35:41 --> Model Class Initialized
+DEBUG - 2014-08-02 17:35:41 --> Controller Class Initialized
+DEBUG - 2014-08-02 17:35:41 --> Language file loaded: language/1/application_lang.php
+DEBUG - 2014-08-02 17:35:41 --> Language file loaded: language/1/adminProfile_lang.php
+DEBUG - 2014-08-02 17:35:41 --> File loaded: application/views/adminProfile/profile.php
+DEBUG - 2014-08-02 17:35:42 --> File loaded: application/views/template/template.php
+DEBUG - 2014-08-02 17:35:42 --> Final output sent to browser
+DEBUG - 2014-08-02 17:35:42 --> Total execution time: 0.6490
+DEBUG - 2014-08-02 17:35:46 --> Config Class Initialized
+DEBUG - 2014-08-02 17:35:46 --> Hooks Class Initialized
+DEBUG - 2014-08-02 17:35:46 --> Utf8 Class Initialized
+DEBUG - 2014-08-02 17:35:46 --> UTF-8 Support Enabled
+DEBUG - 2014-08-02 17:35:46 --> URI Class Initialized
+DEBUG - 2014-08-02 17:35:46 --> Router Class Initialized
+DEBUG - 2014-08-02 17:35:46 --> Output Class Initialized
+DEBUG - 2014-08-02 17:35:46 --> Security Class Initialized
+DEBUG - 2014-08-02 17:35:46 --> Input Class Initialized
+DEBUG - 2014-08-02 17:35:46 --> Global POST and COOKIE data sanitized
+DEBUG - 2014-08-02 17:35:46 --> Language Class Initialized
+DEBUG - 2014-08-02 17:35:46 --> Loader Class Initialized
+DEBUG - 2014-08-02 17:35:46 --> Helper loaded: url_helper
+DEBUG - 2014-08-02 17:35:46 --> Helper loaded: form_helper
+DEBUG - 2014-08-02 17:35:46 --> Database Driver Class Initialized
+DEBUG - 2014-08-02 17:35:46 --> Session Class Initialized
+DEBUG - 2014-08-02 17:35:46 --> Helper loaded: string_helper
+DEBUG - 2014-08-02 17:35:46 --> Session routines successfully run
+DEBUG - 2014-08-02 17:35:46 --> Model Class Initialized
+DEBUG - 2014-08-02 17:35:47 --> Model Class Initialized
+DEBUG - 2014-08-02 17:35:47 --> Model Class Initialized
+DEBUG - 2014-08-02 17:35:47 --> Controller Class Initialized
+DEBUG - 2014-08-02 17:35:47 --> Language file loaded: language/1/application_lang.php
+DEBUG - 2014-08-02 17:35:47 --> Language file loaded: language/1/adminProfile_lang.php
+DEBUG - 2014-08-02 17:35:47 --> Final output sent to browser
+DEBUG - 2014-08-02 17:35:47 --> Total execution time: 0.5626
+DEBUG - 2014-08-02 17:35:47 --> Config Class Initialized
+DEBUG - 2014-08-02 17:35:47 --> Hooks Class Initialized
+DEBUG - 2014-08-02 17:35:47 --> Utf8 Class Initialized
+DEBUG - 2014-08-02 17:35:47 --> UTF-8 Support Enabled
+DEBUG - 2014-08-02 17:35:47 --> URI Class Initialized
+DEBUG - 2014-08-02 17:35:47 --> Router Class Initialized
+DEBUG - 2014-08-02 17:35:47 --> Output Class Initialized
+DEBUG - 2014-08-02 17:35:47 --> Security Class Initialized
+DEBUG - 2014-08-02 17:35:47 --> Input Class Initialized
+DEBUG - 2014-08-02 17:35:47 --> Global POST and COOKIE data sanitized
+DEBUG - 2014-08-02 17:35:47 --> Language Class Initialized
+DEBUG - 2014-08-02 17:35:47 --> Loader Class Initialized
+DEBUG - 2014-08-02 17:35:47 --> Helper loaded: url_helper
+DEBUG - 2014-08-02 17:35:47 --> Helper loaded: form_helper
+DEBUG - 2014-08-02 17:35:47 --> Database Driver Class Initialized
+DEBUG - 2014-08-02 17:35:47 --> Session Class Initialized
+DEBUG - 2014-08-02 17:35:47 --> Helper loaded: string_helper
+DEBUG - 2014-08-02 17:35:47 --> Session routines successfully run
+DEBUG - 2014-08-02 17:35:47 --> Model Class Initialized
+DEBUG - 2014-08-02 17:35:47 --> Model Class Initialized
+DEBUG - 2014-08-02 17:35:47 --> Model Class Initialized
+DEBUG - 2014-08-02 17:35:47 --> Controller Class Initialized
+DEBUG - 2014-08-02 17:35:47 --> Language file loaded: language/2/application_lang.php
+DEBUG - 2014-08-02 17:35:47 --> Language file loaded: language/2/adminProfile_lang.php
+DEBUG - 2014-08-02 17:35:48 --> File loaded: application/views/adminProfile/profile.php
+DEBUG - 2014-08-02 17:35:48 --> File loaded: application/views/template/template.php
+DEBUG - 2014-08-02 17:35:48 --> Final output sent to browser
+DEBUG - 2014-08-02 17:35:48 --> Total execution time: 0.6816
+DEBUG - 2014-08-02 17:35:53 --> Config Class Initialized
+DEBUG - 2014-08-02 17:35:53 --> Hooks Class Initialized
+DEBUG - 2014-08-02 17:35:53 --> Utf8 Class Initialized
+DEBUG - 2014-08-02 17:35:53 --> UTF-8 Support Enabled
+DEBUG - 2014-08-02 17:35:53 --> URI Class Initialized
+DEBUG - 2014-08-02 17:35:53 --> Router Class Initialized
+DEBUG - 2014-08-02 17:35:53 --> Output Class Initialized
+DEBUG - 2014-08-02 17:35:53 --> Security Class Initialized
+DEBUG - 2014-08-02 17:35:53 --> Input Class Initialized
+DEBUG - 2014-08-02 17:35:53 --> Global POST and COOKIE data sanitized
+DEBUG - 2014-08-02 17:35:53 --> Language Class Initialized
+DEBUG - 2014-08-02 17:35:53 --> Loader Class Initialized
+DEBUG - 2014-08-02 17:35:53 --> Helper loaded: url_helper
+DEBUG - 2014-08-02 17:35:53 --> Helper loaded: form_helper
+DEBUG - 2014-08-02 17:35:53 --> Database Driver Class Initialized
+DEBUG - 2014-08-02 17:35:53 --> Session Class Initialized
+DEBUG - 2014-08-02 17:35:53 --> Helper loaded: string_helper
+DEBUG - 2014-08-02 17:35:53 --> Session routines successfully run
+DEBUG - 2014-08-02 17:35:53 --> Model Class Initialized
+DEBUG - 2014-08-02 17:35:53 --> Model Class Initialized
+DEBUG - 2014-08-02 17:35:53 --> Model Class Initialized
+DEBUG - 2014-08-02 17:35:53 --> Controller Class Initialized
+DEBUG - 2014-08-02 17:35:53 --> Language file loaded: language/2/application_lang.php
+DEBUG - 2014-08-02 17:35:53 --> Language file loaded: language/2/system_lang.php
+DEBUG - 2014-08-02 17:35:53 --> Config file loaded: application/config/config_system.php
+DEBUG - 2014-08-02 17:35:53 --> File loaded: application/views/system/system.php
+DEBUG - 2014-08-02 17:35:53 --> File loaded: application/views/template/template.php
+DEBUG - 2014-08-02 17:35:53 --> Final output sent to browser
+DEBUG - 2014-08-02 17:35:53 --> Total execution time: 0.6279
+DEBUG - 2014-08-02 17:35:57 --> Config Class Initialized
+DEBUG - 2014-08-02 17:35:57 --> Hooks Class Initialized
+DEBUG - 2014-08-02 17:35:57 --> Utf8 Class Initialized
+DEBUG - 2014-08-02 17:35:57 --> UTF-8 Support Enabled
+DEBUG - 2014-08-02 17:35:57 --> URI Class Initialized
+DEBUG - 2014-08-02 17:35:57 --> Router Class Initialized
+DEBUG - 2014-08-02 17:35:57 --> Output Class Initialized
+DEBUG - 2014-08-02 17:35:57 --> Security Class Initialized
+DEBUG - 2014-08-02 17:35:57 --> Input Class Initialized
+DEBUG - 2014-08-02 17:35:57 --> Global POST and COOKIE data sanitized
+DEBUG - 2014-08-02 17:35:57 --> Language Class Initialized
+DEBUG - 2014-08-02 17:35:57 --> Loader Class Initialized
+DEBUG - 2014-08-02 17:35:57 --> Helper loaded: url_helper
+DEBUG - 2014-08-02 17:35:57 --> Helper loaded: form_helper
+DEBUG - 2014-08-02 17:35:57 --> Database Driver Class Initialized
+DEBUG - 2014-08-02 17:35:57 --> Session Class Initialized
+DEBUG - 2014-08-02 17:35:57 --> Helper loaded: string_helper
+DEBUG - 2014-08-02 17:35:57 --> Session routines successfully run
+DEBUG - 2014-08-02 17:35:57 --> Model Class Initialized
+DEBUG - 2014-08-02 17:35:57 --> Model Class Initialized
+DEBUG - 2014-08-02 17:35:57 --> Model Class Initialized
+DEBUG - 2014-08-02 17:35:57 --> Controller Class Initialized
+DEBUG - 2014-08-02 17:35:57 --> Language file loaded: language/2/application_lang.php
+DEBUG - 2014-08-02 17:35:57 --> Language file loaded: language/2/system_lang.php
+DEBUG - 2014-08-02 17:35:57 --> Config file loaded: application/config/config_system.php
+DEBUG - 2014-08-02 17:35:57 --> File loaded: application/views/system/system_plugin_install_form.php
+DEBUG - 2014-08-02 17:35:57 --> Final output sent to browser
+DEBUG - 2014-08-02 17:35:57 --> Total execution time: 0.5609
+DEBUG - 2014-08-02 17:36:08 --> Config Class Initialized
+DEBUG - 2014-08-02 17:36:08 --> Hooks Class Initialized
+DEBUG - 2014-08-02 17:36:08 --> Utf8 Class Initialized
+DEBUG - 2014-08-02 17:36:08 --> UTF-8 Support Enabled
+DEBUG - 2014-08-02 17:36:08 --> URI Class Initialized
+DEBUG - 2014-08-02 17:36:08 --> Router Class Initialized
+DEBUG - 2014-08-02 17:36:08 --> Output Class Initialized
+DEBUG - 2014-08-02 17:36:08 --> Security Class Initialized
+DEBUG - 2014-08-02 17:36:08 --> Input Class Initialized
+DEBUG - 2014-08-02 17:36:08 --> Global POST and COOKIE data sanitized
+DEBUG - 2014-08-02 17:36:08 --> Language Class Initialized
+DEBUG - 2014-08-02 17:36:08 --> Loader Class Initialized
+DEBUG - 2014-08-02 17:36:08 --> Helper loaded: url_helper
+DEBUG - 2014-08-02 17:36:08 --> Helper loaded: form_helper
+DEBUG - 2014-08-02 17:36:08 --> Database Driver Class Initialized
+DEBUG - 2014-08-02 17:36:08 --> Session Class Initialized
+DEBUG - 2014-08-02 17:36:08 --> Helper loaded: string_helper
+DEBUG - 2014-08-02 17:36:08 --> Session routines successfully run
+DEBUG - 2014-08-02 17:36:08 --> Model Class Initialized
+DEBUG - 2014-08-02 17:36:08 --> Model Class Initialized
+DEBUG - 2014-08-02 17:36:08 --> Model Class Initialized
+DEBUG - 2014-08-02 17:36:08 --> Controller Class Initialized
+DEBUG - 2014-08-02 17:36:08 --> Model Class Initialized
+DEBUG - 2014-08-02 17:36:08 --> Language file loaded: language/2/application_lang.php
+DEBUG - 2014-08-02 17:36:08 --> Language file loaded: language/2/adminList_lang.php
+DEBUG - 2014-08-02 17:36:08 --> File loaded: application/views/adminList/data_list.php
+DEBUG - 2014-08-02 17:36:08 --> File loaded: application/views/adminList/list.php
+DEBUG - 2014-08-02 17:36:08 --> File loaded: application/views/template/template.php
+DEBUG - 2014-08-02 17:36:08 --> Final output sent to browser
+DEBUG - 2014-08-02 17:36:08 --> Total execution time: 0.6707
+DEBUG - 2014-08-02 17:36:35 --> Config Class Initialized
+DEBUG - 2014-08-02 17:36:35 --> Hooks Class Initialized
+DEBUG - 2014-08-02 17:36:35 --> Utf8 Class Initialized
+DEBUG - 2014-08-02 17:36:35 --> UTF-8 Support Enabled
+DEBUG - 2014-08-02 17:36:35 --> URI Class Initialized
+DEBUG - 2014-08-02 17:36:35 --> Router Class Initialized
+DEBUG - 2014-08-02 17:36:35 --> Output Class Initialized
+DEBUG - 2014-08-02 17:36:35 --> Security Class Initialized
+DEBUG - 2014-08-02 17:36:35 --> Input Class Initialized
+DEBUG - 2014-08-02 17:36:35 --> Global POST and COOKIE data sanitized
+DEBUG - 2014-08-02 17:36:35 --> Language Class Initialized
+DEBUG - 2014-08-02 17:36:35 --> Loader Class Initialized
+DEBUG - 2014-08-02 17:36:35 --> Helper loaded: url_helper
+DEBUG - 2014-08-02 17:36:35 --> Helper loaded: form_helper
+DEBUG - 2014-08-02 17:36:35 --> Database Driver Class Initialized
+DEBUG - 2014-08-02 17:36:35 --> Session Class Initialized
+DEBUG - 2014-08-02 17:36:36 --> Helper loaded: string_helper
+DEBUG - 2014-08-02 17:36:36 --> Session routines successfully run
+DEBUG - 2014-08-02 17:36:36 --> Model Class Initialized
+DEBUG - 2014-08-02 17:36:36 --> Model Class Initialized
+DEBUG - 2014-08-02 17:36:36 --> Model Class Initialized
+DEBUG - 2014-08-02 17:36:36 --> Controller Class Initialized
+DEBUG - 2014-08-02 17:36:36 --> Language file loaded: language/2/application_lang.php
+DEBUG - 2014-08-02 17:36:36 --> Language file loaded: language/2/system_lang.php
+DEBUG - 2014-08-02 17:36:36 --> Config file loaded: application/config/config_system.php
+DEBUG - 2014-08-02 17:36:36 --> File loaded: application/views/system/system.php
+DEBUG - 2014-08-02 17:36:36 --> File loaded: application/views/template/template.php
+DEBUG - 2014-08-02 17:36:36 --> Final output sent to browser
+DEBUG - 2014-08-02 17:36:36 --> Total execution time: 0.6436
+DEBUG - 2014-08-02 17:36:40 --> Config Class Initialized
+DEBUG - 2014-08-02 17:36:40 --> Hooks Class Initialized
+DEBUG - 2014-08-02 17:36:40 --> Utf8 Class Initialized
+DEBUG - 2014-08-02 17:36:40 --> UTF-8 Support Enabled
+DEBUG - 2014-08-02 17:36:40 --> URI Class Initialized
+DEBUG - 2014-08-02 17:36:40 --> Router Class Initialized
+DEBUG - 2014-08-02 17:36:40 --> Output Class Initialized
+DEBUG - 2014-08-02 17:36:41 --> Security Class Initialized
+DEBUG - 2014-08-02 17:36:41 --> Input Class Initialized
+DEBUG - 2014-08-02 17:36:41 --> Global POST and COOKIE data sanitized
+DEBUG - 2014-08-02 17:36:41 --> Language Class Initialized
+DEBUG - 2014-08-02 17:36:41 --> Loader Class Initialized
+DEBUG - 2014-08-02 17:36:41 --> Helper loaded: url_helper
+DEBUG - 2014-08-02 17:36:41 --> Helper loaded: form_helper
+DEBUG - 2014-08-02 17:36:41 --> Database Driver Class Initialized
+DEBUG - 2014-08-02 17:36:41 --> Session Class Initialized
+DEBUG - 2014-08-02 17:36:41 --> Helper loaded: string_helper
+DEBUG - 2014-08-02 17:36:41 --> Session routines successfully run
+DEBUG - 2014-08-02 17:36:41 --> Model Class Initialized
+DEBUG - 2014-08-02 17:36:41 --> Model Class Initialized
+DEBUG - 2014-08-02 17:36:41 --> Model Class Initialized
+DEBUG - 2014-08-02 17:36:41 --> Controller Class Initialized
+DEBUG - 2014-08-02 17:36:41 --> Language file loaded: language/2/application_lang.php
+DEBUG - 2014-08-02 17:36:41 --> Language file loaded: language/2/adminProfile_lang.php
+DEBUG - 2014-08-02 17:36:41 --> File loaded: application/views/adminProfile/profile.php
+DEBUG - 2014-08-02 17:36:41 --> File loaded: application/views/template/template.php
+DEBUG - 2014-08-02 17:36:41 --> Final output sent to browser
+DEBUG - 2014-08-02 17:36:41 --> Total execution time: 0.6621
+DEBUG - 2014-08-02 17:36:45 --> Config Class Initialized
+DEBUG - 2014-08-02 17:36:45 --> Hooks Class Initialized
+DEBUG - 2014-08-02 17:36:45 --> Utf8 Class Initialized
+DEBUG - 2014-08-02 17:36:45 --> UTF-8 Support Enabled
+DEBUG - 2014-08-02 17:36:45 --> URI Class Initialized
+DEBUG - 2014-08-02 17:36:45 --> Router Class Initialized
+DEBUG - 2014-08-02 17:36:45 --> Output Class Initialized
+DEBUG - 2014-08-02 17:36:45 --> Security Class Initialized
+DEBUG - 2014-08-02 17:36:45 --> Input Class Initialized
+DEBUG - 2014-08-02 17:36:45 --> Global POST and COOKIE data sanitized
+DEBUG - 2014-08-02 17:36:45 --> Language Class Initialized
+DEBUG - 2014-08-02 17:36:45 --> Loader Class Initialized
+DEBUG - 2014-08-02 17:36:45 --> Helper loaded: url_helper
+DEBUG - 2014-08-02 17:36:45 --> Helper loaded: form_helper
+DEBUG - 2014-08-02 17:36:45 --> Database Driver Class Initialized
+DEBUG - 2014-08-02 17:36:45 --> Session Class Initialized
+DEBUG - 2014-08-02 17:36:45 --> Helper loaded: string_helper
+DEBUG - 2014-08-02 17:36:45 --> Session routines successfully run
+DEBUG - 2014-08-02 17:36:45 --> Model Class Initialized
+DEBUG - 2014-08-02 17:36:45 --> Model Class Initialized
+DEBUG - 2014-08-02 17:36:45 --> Model Class Initialized
+DEBUG - 2014-08-02 17:36:45 --> Controller Class Initialized
+DEBUG - 2014-08-02 17:36:45 --> Language file loaded: language/2/application_lang.php
+DEBUG - 2014-08-02 17:36:45 --> Language file loaded: language/2/adminProfile_lang.php
+DEBUG - 2014-08-02 17:36:45 --> Final output sent to browser
+DEBUG - 2014-08-02 17:36:45 --> Total execution time: 0.5440
+DEBUG - 2014-08-02 17:36:46 --> Config Class Initialized
+DEBUG - 2014-08-02 17:36:46 --> Hooks Class Initialized
+DEBUG - 2014-08-02 17:36:46 --> Utf8 Class Initialized
+DEBUG - 2014-08-02 17:36:46 --> UTF-8 Support Enabled
+DEBUG - 2014-08-02 17:36:46 --> URI Class Initialized
+DEBUG - 2014-08-02 17:36:46 --> Router Class Initialized
+DEBUG - 2014-08-02 17:36:46 --> Output Class Initialized
+DEBUG - 2014-08-02 17:36:46 --> Security Class Initialized
+DEBUG - 2014-08-02 17:36:46 --> Input Class Initialized
+DEBUG - 2014-08-02 17:36:46 --> Global POST and COOKIE data sanitized
+DEBUG - 2014-08-02 17:36:46 --> Language Class Initialized
+DEBUG - 2014-08-02 17:36:46 --> Loader Class Initialized
+DEBUG - 2014-08-02 17:36:46 --> Helper loaded: url_helper
+DEBUG - 2014-08-02 17:36:46 --> Helper loaded: form_helper
+DEBUG - 2014-08-02 17:36:46 --> Database Driver Class Initialized
+DEBUG - 2014-08-02 17:36:46 --> Session Class Initialized
+DEBUG - 2014-08-02 17:36:46 --> Helper loaded: string_helper
+DEBUG - 2014-08-02 17:36:46 --> Session routines successfully run
+DEBUG - 2014-08-02 17:36:46 --> Model Class Initialized
+DEBUG - 2014-08-02 17:36:46 --> Model Class Initialized
+DEBUG - 2014-08-02 17:36:46 --> Model Class Initialized
+DEBUG - 2014-08-02 17:36:46 --> Controller Class Initialized
+DEBUG - 2014-08-02 17:36:46 --> Language file loaded: language/1/application_lang.php
+DEBUG - 2014-08-02 17:36:46 --> Language file loaded: language/1/adminProfile_lang.php
+DEBUG - 2014-08-02 17:36:46 --> File loaded: application/views/adminProfile/profile.php
+DEBUG - 2014-08-02 17:36:46 --> File loaded: application/views/template/template.php
+DEBUG - 2014-08-02 17:36:46 --> Final output sent to browser
+DEBUG - 2014-08-02 17:36:46 --> Total execution time: 0.6452
+DEBUG - 2014-08-02 17:38:01 --> Config Class Initialized
+DEBUG - 2014-08-02 17:38:01 --> Hooks Class Initialized
+DEBUG - 2014-08-02 17:38:01 --> Utf8 Class Initialized
+DEBUG - 2014-08-02 17:38:01 --> UTF-8 Support Enabled
+DEBUG - 2014-08-02 17:38:01 --> URI Class Initialized
+DEBUG - 2014-08-02 17:38:01 --> Router Class Initialized
+DEBUG - 2014-08-02 17:38:01 --> Output Class Initialized
+DEBUG - 2014-08-02 17:38:01 --> Security Class Initialized
+DEBUG - 2014-08-02 17:38:01 --> Input Class Initialized
+DEBUG - 2014-08-02 17:38:01 --> Global POST and COOKIE data sanitized
+DEBUG - 2014-08-02 17:38:01 --> Language Class Initialized
+DEBUG - 2014-08-02 17:38:01 --> Loader Class Initialized
+DEBUG - 2014-08-02 17:38:01 --> Helper loaded: url_helper
+DEBUG - 2014-08-02 17:38:01 --> Helper loaded: form_helper
+DEBUG - 2014-08-02 17:38:01 --> Database Driver Class Initialized
+DEBUG - 2014-08-02 17:38:01 --> Session Class Initialized
+DEBUG - 2014-08-02 17:38:01 --> Helper loaded: string_helper
+DEBUG - 2014-08-02 17:38:01 --> Session routines successfully run
+DEBUG - 2014-08-02 17:38:01 --> Model Class Initialized
+DEBUG - 2014-08-02 17:38:01 --> Model Class Initialized
+DEBUG - 2014-08-02 17:38:01 --> Model Class Initialized
+DEBUG - 2014-08-02 17:38:01 --> Controller Class Initialized
+DEBUG - 2014-08-02 17:38:01 --> Model Class Initialized
+DEBUG - 2014-08-02 17:38:01 --> Language file loaded: language/1/application_lang.php
+DEBUG - 2014-08-02 17:38:01 --> Language file loaded: language/1/adminList_lang.php
+DEBUG - 2014-08-02 17:38:01 --> File loaded: application/views/adminList/data_list.php
+DEBUG - 2014-08-02 17:38:01 --> File loaded: application/views/adminList/list.php
+DEBUG - 2014-08-02 17:38:01 --> File loaded: application/views/template/template.php
+DEBUG - 2014-08-02 17:38:01 --> Final output sent to browser
+DEBUG - 2014-08-02 17:38:01 --> Total execution time: 0.6791

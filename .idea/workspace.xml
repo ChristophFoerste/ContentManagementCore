@@ -50,10 +50,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="system_plugin_install_form.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="system_plugin_install_form.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/views/system/system_plugin_install_form.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="72" selection-start="668" selection-end="668" vertical-scroll-proportion="0.33938295" vertical-offset="0" max-vertical-offset="551">
+            <state line="11" column="72" selection-start="668" selection-end="668" vertical-scroll-proportion="-7.1923075" vertical-offset="0" max-vertical-offset="408">
               <folding />
             </state>
           </provider>
@@ -71,16 +71,16 @@
       <file leaf-file-name="system_lang.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/language/1/system_lang.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="37" column="51" selection-start="2589" selection-end="2633" vertical-scroll-proportion="-17.923077" vertical-offset="163" max-vertical-offset="833">
+            <state line="37" column="51" selection-start="2589" selection-end="2633" vertical-scroll-proportion="-13.346154" vertical-offset="282" max-vertical-offset="833">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="system_lang.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="system_lang.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/language/2/system_lang.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="39" column="57" selection-start="2652" selection-end="2702" vertical-scroll-proportion="-17.923077" vertical-offset="197" max-vertical-offset="833">
+            <state line="39" column="71" selection-start="2716" selection-end="2716" vertical-scroll-proportion="0.69147" vertical-offset="282" max-vertical-offset="833">
               <folding />
             </state>
           </provider>
@@ -144,9 +144,9 @@
         <option value="$PROJECT_DIR$/application/controllers/system.php" />
         <option value="$PROJECT_DIR$/application/javascript/system.js" />
         <option value="$PROJECT_DIR$/application/language/1/system_lang.php" />
-        <option value="$PROJECT_DIR$/application/language/2/system_lang.php" />
         <option value="$PROJECT_DIR$/application/views/system/system.php" />
         <option value="$PROJECT_DIR$/application/views/system/system_plugin_install_form.php" />
+        <option value="$PROJECT_DIR$/application/language/2/system_lang.php" />
       </list>
     </option>
   </component>
@@ -709,20 +709,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/language/2/system_lang.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="57" selection-start="2652" selection-end="2702" vertical-scroll-proportion="-17.923077" vertical-offset="197" max-vertical-offset="833">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/language/1/system_lang.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="51" selection-start="2589" selection-end="2633" vertical-scroll-proportion="-17.923077" vertical-offset="163" max-vertical-offset="833">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/system.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="192" column="50" selection-start="7480" selection-end="7480" vertical-scroll-proportion="-8.923077" vertical-offset="3032" max-vertical-offset="3825">
@@ -739,7 +725,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/system/system_plugin_install_form.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="72" selection-start="668" selection-end="668" vertical-scroll-proportion="0.33938295" vertical-offset="0" max-vertical-offset="551">
+        <state line="11" column="72" selection-start="668" selection-end="668" vertical-scroll-proportion="-7.1923075" vertical-offset="0" max-vertical-offset="408">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/language/1/system_lang.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="37" column="51" selection-start="2589" selection-end="2633" vertical-scroll-proportion="-13.346154" vertical-offset="282" max-vertical-offset="833">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/language/2/system_lang.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="39" column="71" selection-start="2716" selection-end="2716" vertical-scroll-proportion="0.69147" vertical-offset="282" max-vertical-offset="833">
           <folding />
         </state>
       </provider>
