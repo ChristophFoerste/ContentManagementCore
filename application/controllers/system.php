@@ -172,14 +172,22 @@ class system extends CI_Controller {
 
             if($this->zip->archive($archivePath)){
                 $this->zip->clear_data();
-                echo $this->lang->line('system_hint_pluginBackupCreated');
+                $result = new stdClass();
+                $result->dialogTitle = $this->lang->line('application_dialogTitle_hint');
+                $result->successMessage = $this->lang->line('system_hint_pluginBackupCreated');
             } else {
                 $this->zip->clear_data();
-                echo $this->lang->line('system_error_pluginBackupCreated');
+                $result = new stdClass();
+                $result->dialogTitle = $this->lang->line('application_dialogTitle_error');
+                $result->errorMessage = $this->lang->line('system_error_pluginBackupCreated');
             }
         } else {
-            echo $this->lang->line('system_error_pluginBackupNumberOfFilesExceed');
+            $result = new stdClass();
+            $result->dialogTitle = $this->lang->line('application_dialogTitle_error');
+            $result->errorMessage = $this->lang->line('system_error_pluginBackupNumberOfFilesExceed');
         }
+
+        echo json_encode($result);
     }
 
     /*
@@ -205,16 +213,75 @@ class system extends CI_Controller {
         $uploadConfig['file_name'] = 'pluginTemp.zip';
         $uploadConfig['upload_path'] = "./dynamicContents/temp/";
         $uploadConfig['allowed_types'] = "zip";
-        $uploadConfig['max_size'] = 1;
+        $uploadConfig['max_size'] = 1024;
         $uploadConfig['overwrite'] = TRUE;
 
         $this->load->library('upload', $uploadConfig);
         $this->upload->initialize($uploadConfig);
 
+        //upload file
         if(!$this->upload->do_upload("pluginArchive")){
-            echo "error - ".$this->upload->display_errors();
+            $result = new stdClass();
+            $result->dialogTitle = $this->lang->line('application_dialogTitle_error');
+            $result->errorMessage = $this->upload->display_errors();
         } else {
-            echo "true";
+            //open archive
+            $zip = new ZipArchive();
+            $result = $zip->open('./dynamicContents/temp/pluginTemp.zip');
+            if($result === TRUE){
+                //extract archive
+                if($zip->extractTo('./dynamicContents/temp/pluginTemp/')){
+                    //unlink('./dynamicContents/temp/pluginTemp.zip'); //delete uploaded zip archive
+                    if($this->installArchiveFiles()){
+                        $result = new stdClass();
+                        $result->dialogTitle = $this->lang->line('application_dialogTitle_hint');
+                        $result->successMessage = $this->lang->line('system_dialog_pluginInstallation_successPluginInstalled');
+                    } else {
+                        $result = new stdClass();
+                        $result->dialogTitle = $this->lang->line('application_dialogTitle_error');
+                        $result->successMessage = $this->lang->line('system_dialog_pluginInstallation_errorCantOpenZIP');
+                    }
+                } else {
+                    $result = new stdClass();
+                    $result->dialogTitle = $this->lang->line('application_dialogTitle_error');
+                    $result->successMessage = $this->lang->line('system_dialog_pluginInstallation_errorCantOpenZIP');
+                }
+            } else {
+                $result = new stdClass();
+                $result->dialogTitle = $this->lang->line('application_dialogTitle_error');
+                $result->errorMessage = $this->lang->line("system_dialog_pluginInstallation_errorCantUploadFile");
+            }
         }
+
+        echo json_encode($result);
+    }
+
+/*
+* take all files of ectracted zip archive and put them into right place
+*
+*
+* return string representation of true or false
+*/
+    private function installArchiveFiles($directory = './dynamicContents/temp/pluginArchive/'){
+        /*
+        //open directory
+        if ($dirHandle = opendir($directory)) {
+            //loop through all directories
+            while (($dir = readdir($dirHandle)) !== false){
+                //if allowed directory
+                if (!in_array($dir, array('.', '..')) && is_dir($directory.$dir)){
+                    //loop through every file in directory
+                    while(){
+                        //if element directory -> recursive call of this function
+                        if(DIRECTOY){
+                            $this->installArchiveFiles()
+                        } elseif(FILE){
+                            //copy file to directory
+                        }
+                    }
+                }
+            }
+        }*/
+        return TRUE;
     }
 }

@@ -6,4 +6,7 @@ $lang['application_plugin_adminProfile']            = "<i class=\"fa fa-fw fa-co
 //navigation labels
 $lang['application_navigation_userLogout']          = "<i class=\"fa fa-fw fa-power-off text-danger\"></i> abmelden";
 
+//standard dialog titles
+$lang['application_dialogTitle_error']              = "Fehler";
+$lang['application_dialogTitle_hint']               = "Hinweis";
 ?>

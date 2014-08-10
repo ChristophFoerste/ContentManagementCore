@@ -4,7 +4,13 @@ $(document).ready(function(){
         Application.Popup.Dialog($(this), function(){
             /*Post data of form to script and handle response*/
             Application.Request.Post(undefined, $('#pluginBackupForm').attr('data-requestURL'), $('#pluginBackupForm').serialize(), function(data){
-                Application.Popup.Hint(data);
+                data = jQuery.parseJSON(data);
+                console.log(data);
+                if(data.errorMessage){
+                    Application.Popup.Error(data.dialogTitle, data.errorMessage);
+                } else {
+                    Application.Popup.Hint(data.dialogTitle, data.successMessage);
+                }
             });
         });
     });
@@ -28,11 +34,11 @@ $(document).ready(function(){
 
     /*load form for updating an installed plugin*/
     $(document).off('click', 'button[name=pluginUpdate]').on('click', 'button[name=pluginUpdate]', function(){
-        Application.Popup.Dialog($(this), function(){});
+        Application.Popup.Dialog($(this), function(){}, true);
     });
 
     /*wrap function of selecting a file in install plugin dialog*/
     $(document).off('click', 'button[name=selectPluginArchive]').on('click', 'button[name=selectPluginArchive]', function(){
-        $('input[name=pluginArchive]').click();
+        $("#pluginInstallationForm").click();
     });
 });

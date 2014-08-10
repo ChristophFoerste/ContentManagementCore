@@ -1,20 +1,20 @@
 <?php
-    $lang['upload_userfile_not_set'] = "Unable to find a post variable called userfile.";
-    $lang['upload_file_exceeds_limit'] = "The uploaded file exceeds the maximum allowed size in your PHP configuration file.";
-    $lang['upload_file_exceeds_form_limit'] = "The uploaded file exceeds the maximum size allowed by the submission form.";
-    $lang['upload_file_partial'] = "The file was only partially uploaded.";
-    $lang['upload_no_temp_directory'] = "The temporary folder is missing.";
-    $lang['upload_unable_to_write_file'] = "The file could not be written to disk.";
-    $lang['upload_stopped_by_extension'] = "The file upload was stopped by extension.";
-    $lang['upload_no_file_selected'] = "You did not select a file to upload.";
-    $lang['upload_invalid_filetype'] = "The filetype you are attempting to upload is not allowed.";
-    $lang['upload_invalid_filesize'] = "The file you are attempting to upload is larger than the permitted size.";
-    $lang['upload_invalid_dimensions'] = "The image you are attempting to upload exceedes the maximum height or width.";
-    $lang['upload_destination_error'] = "A problem was encountered while attempting to move the uploaded file to the final destination.";
-    $lang['upload_no_filepath'] = "The upload path does not appear to be valid.";
-    $lang['upload_no_file_types'] = "You have not specified any allowed file types.";
-    $lang['upload_bad_filename'] = "The file name you submitted already exists on the server.";
-    $lang['upload_not_writable'] = "The upload destination folder does not appear to be writable.";
+    $lang['upload_userfile_not_set'] = "Post-Variable kann nicht gefunden werden.";
+    $lang['upload_file_exceeds_limit'] = "Die Größe des Uploads überschreitet die, in der PHP-Konfiguration angegebene, Maximalgröße.";
+    $lang['upload_file_exceeds_form_limit'] = "Die Größe des Uploads überschreitet die in der Formularkonfiguration angegebene Größe.";
+    $lang['upload_file_partial'] = "Die Datei konnte nur teilweise hochgeladen werden";
+    $lang['upload_no_temp_directory'] = "Die temporär erzeugte Datei ist nicht auffindbar.";
+    $lang['upload_unable_to_write_file'] = "Die Datei konnte nicht geschrieben werden.";
+    $lang['upload_stopped_by_extension'] = "Der Upload wurde von einer Erweiterung unterbrochen.";
+    $lang['upload_no_file_selected'] = "Es wurde keine Datei zum Hochladen ausgewählt";
+    $lang['upload_invalid_filetype'] = "Die Datei-Erweiterung ist nicht erlaubt.";
+    $lang['upload_invalid_filesize'] = "Die Dateigröße überschreitet das zulässige Maximum.";
+    $lang['upload_invalid_dimensions'] = "Das Bild überschreitet die maximal zulässige Dimension.";
+    $lang['upload_destination_error'] = "Beim Schreiben der Datei in das Zielverzeichnis gab es ein Problem.";
+    $lang['upload_no_filepath'] = "Das Ziel des Uploads scheint nicht valide zu sein.";
+    $lang['upload_no_file_types'] = "Es wurden keine zulässigen Dateierweiterungen angegeben.";
+    $lang['upload_bad_filename'] = "Die Datei existiert bereits auf dem Server.";
+    $lang['upload_not_writable'] = "Das Zielverzeichnis schein nicht beschreibbar zu sein.";
 
 /* End of file upload_lang.php */
 /* Location: ./system/language/english/upload_lang.php */

@@ -39,6 +39,7 @@ $(document).ready(function(){
         },
 
         Popup : {
+            /*
             Alert : function(sender) {
                 sender.attr('disabled', 'disabled');
 
@@ -51,17 +52,34 @@ $(document).ready(function(){
                                     }
                 });
             },
-
-            Hint : function(message) {
+            */
+            Hint : function(title, message) {
 
                 var alertDialog = bootbox.alert({
+                    title:          title,
                     message:        message,
                     closeButton:    false
                 });
+                alertDialog.find('.modal-header').addClass('bg-info');
             },
 
-            Dialog : function(sender, successFunction) {
+            Error : function(title, message) {
+
+                var alertDialog = bootbox.alert({
+                    title:          title,
+                    message:        message,
+                    closeButton:    false
+                });
+                alertDialog.find('.modal-header').addClass('bg-danger');
+            },
+
+            Dialog : function(sender, successFunction, hideCancelButton) {
                 sender.attr('disabled', 'disabled');
+
+                var cancelButtonStyle = "btn-default";
+                if(hideCancelButton == true){
+                    cancelButtonStyle = "btn-default hidden";
+                }
 
                 $.ajax({
                     url:        sender.attr('data-requestURL'),
@@ -77,7 +95,7 @@ $(document).ready(function(){
                                         buttons:        {
                                                             'cancel': {
                                                                 label:      sender.attr('data-dialogButtonCancelLabel'),
-                                                                className:  'btn-default',
+                                                                className:  cancelButtonStyle,
                                                                 callback:   function(){
                                                                     sender.removeAttr('disabled');
                                                                 }
