@@ -16,6 +16,7 @@ $lang['system_hint_pluginBackupCreated']                            = 'Die Siche
 //errors
 $lang['system_error_pluginBackupCreated']                           = 'Das Backup konnte nicht erstellt werden';
 $lang['system_error_pluginBackupNumberOfFilesExceed']               = 'Das Backup konnte nicht erstellt werden, da die maximal mögliche Anzahl an Backups für dieses System erreicht wurde.';
+$lang['system_error_pluginBackupConfigFileNotFound']                = 'Config-File konnte nicht gefunden werden';
 
 //buttons
 $lang['system_button_backup']                                       = 'Backup erstellen';
@@ -45,5 +46,4 @@ $lang['system_dialog_pluginInstallation_buttonLabelCancel']         = 'abbrechen
 $lang['system_dialog_pluginInstallation_errorCantOpenZIP']          = 'ZIP-Archiv konnte nicht geöffnet werden.';
 $lang['system_dialog_pluginInstallation_errorCantUploadFile']       = 'Datei konnte nicht hochgeladen werden';
 $lang['system_dialog_pluginInstallation_successPluginInstalled']    = 'Die Erweiterung wurde erfolgreich installiert.';
-
 ?>

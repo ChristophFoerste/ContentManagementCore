@@ -126,60 +126,71 @@ class system extends CI_Controller {
         $fileHelper = new \System\Data\fileHelper();
         if($fileHelper->countFiles($this->config->item("plugin_pathBackup"), array('zip')) <= $this->config->item("plugin_maxBackupCount")){
             $plugin = $_POST['pluginName'];
-            $archivePath = $this->config->item("plugin_pathBackup").$plugin.date('_Ymd_His').'.zip';
-            $this->load->library('zip');
-            //check controller
-            $path = './application/controllers/'.$plugin.'.php';
-            if(file_exists($path)){
-                $content = file_get_contents($path);
-                $this->zip->add_data('controllers/'.$plugin.'.php', $content);
-            }
-            //check javascript
-            $path = './application/javascript/'.$plugin.'.js';
-            if(file_exists($path)){
-                $content = file_get_contents($path);
-                $this->zip->add_data('javascript/'.$plugin.'.js', $content);
-            }
-            //check model
-            $path = './application/models/'.$plugin.'_model.php';
-            if(file_exists($path)){
-                $content = file_get_contents($path);
-                $this->zip->add_data('models/'.$plugin.'_model.php', $content);
-            }
-            //check views
-            $path = './application/views/'.$plugin.'/';
-            if(is_dir($path)){
-                $this->zip->read_dir($path, FALSE);
-            }
-            //check config
-            $path = './application/config/config_'.$plugin.'.php';
-            if(file_exists($path)){
-                $content = file_get_contents($path);
-                $this->zip->add_data('config/config_'.$plugin.'.php', $content);
-            }
-            //check languages
-            $this->zip->add_dir('language');
-            if ($dirHandle = opendir('./application/language')) {
-                while (($dir = readdir($dirHandle)) !== false){
-                    if (!in_array($dir, array('.', '..')) && is_dir('./application/language/'.$dir)){
-                        if(file_exists('./application/language/'.$dir.'/'.$plugin.'_lang.php')){
-                            $content = file_get_contents('./application/language/'.$dir.'/'.$plugin.'_lang.php');
-                            $this->zip->add_data('language/'.$dir.'/'.$plugin.'_lang.php', $content);
-                        }
+
+            if(file_exists('./application/config/pluginConfig/'.$plugin.'_config.php')){
+                //include config-file
+                $configFile = './application/config/pluginConfig/'.$plugin.'_config.php';
+                include_once($configFile);
+                //create output file of archive
+                $archivePath = $this->config->item("plugin_pathBackup").$plugin.date('_Ymd_His').'.zip';
+                $this->load->library('zip');
+                //config file in archiv schreiben
+                $content = file_get_contents(($configFile));
+                $this->zip->add_data($plugin.'_config.php', $content);
+                //loop through config array and add files to archive
+                foreach($pluginConfig as $key => $list){
+                    switch($key){
+                        case 'language':
+                            $this->zip->add_dir('language');
+                            if ($dirHandle = opendir('./application/language')) {
+                                while (($dir = readdir($dirHandle)) !== false){
+                                    if (!in_array($dir, array('.', '..')) && is_dir('./application/language/'.$dir)){
+                                        foreach($list as $listKey => $listValue){
+                                            if(file_exists('./application/language/'.$dir.'/'.$listValue)){
+                                                $content = file_get_contents('./application/language/'.$dir.'/'.$listValue);
+                                                $this->zip->add_data('language/'.$dir.'/'.$listValue, $content);
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            break;
+                        case 'views':
+                            $path = './application/views/'.$pluginConfigName.'/';
+                            foreach($list as $listKey => $listValue){
+                                if(file_exists($path.$listValue)){
+                                    $content = file_get_contents(($path.$listValue));
+                                    $this->zip->add_data($key.'/'.$listValue, $content);
+                                }
+                            }
+                            break;
+                        default:
+                            $path = './application/'.$key.'/';
+                            foreach($list as $listKey => $listValue){
+                                if(file_exists($path.$listValue)){
+                                    $content = file_get_contents(($path.$listValue));
+                                    $this->zip->add_data($key.'/'.$listValue, $content);
+                                }
+                            }
+                            break;
                     }
                 }
-            }
-
-            if($this->zip->archive($archivePath)){
-                $this->zip->clear_data();
-                $result = new stdClass();
-                $result->dialogTitle = $this->lang->line('application_dialogTitle_hint');
-                $result->successMessage = $this->lang->line('system_hint_pluginBackupCreated');
+                //create zip
+                if($this->zip->archive($archivePath)){
+                    $this->zip->clear_data();
+                    $result = new stdClass();
+                    $result->dialogTitle = $this->lang->line('application_dialogTitle_hint');
+                    $result->successMessage = $this->lang->line('system_hint_pluginBackupCreated');
+                } else {
+                    $this->zip->clear_data();
+                    $result = new stdClass();
+                    $result->dialogTitle = $this->lang->line('application_dialogTitle_error');
+                    $result->errorMessage = $this->lang->line('system_error_pluginBackupCreated');
+                }
             } else {
-                $this->zip->clear_data();
                 $result = new stdClass();
                 $result->dialogTitle = $this->lang->line('application_dialogTitle_error');
-                $result->errorMessage = $this->lang->line('system_error_pluginBackupCreated');
+                $result->errorMessage = $this->lang->line('system_error_pluginBackupConfigFileNotFound');
             }
         } else {
             $result = new stdClass();
@@ -263,25 +274,7 @@ class system extends CI_Controller {
 * return string representation of true or false
 */
     private function installArchiveFiles($directory = './dynamicContents/temp/pluginArchive/'){
-        /*
-        //open directory
-        if ($dirHandle = opendir($directory)) {
-            //loop through all directories
-            while (($dir = readdir($dirHandle)) !== false){
-                //if allowed directory
-                if (!in_array($dir, array('.', '..')) && is_dir($directory.$dir)){
-                    //loop through every file in directory
-                    while(){
-                        //if element directory -> recursive call of this function
-                        if(DIRECTOY){
-                            $this->installArchiveFiles()
-                        } elseif(FILE){
-                            //copy file to directory
-                        }
-                    }
-                }
-            }
-        }*/
+
         return TRUE;
     }
 }

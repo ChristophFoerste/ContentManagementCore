@@ -16,6 +16,7 @@ $lang['system_hint_pluginBackupCreated']                            = 'The backu
 //errors
 $lang['system_error_pluginBackupCreated']                           = 'The backup of the extension could not be created';
 $lang['system_error_pluginBackupNumberOfFilesExceed']               = 'The backup of the extension could not be created. The maximum of backups is reached.';
+$lang['system_error_pluginBackupConfigFileNotFound']                = 'Config-File not found.';
 
 //buttons
 $lang['system_button_backup']                                       = 'Create backup';
