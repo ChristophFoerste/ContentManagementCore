@@ -1,5 +1,7 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
+$pluginConfigName = "login";
+
 //controller files
 $pluginConfig['controllers'][] = 'login.php';
 

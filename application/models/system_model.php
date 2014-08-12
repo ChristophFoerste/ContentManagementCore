@@ -22,11 +22,34 @@ class System_model extends CI_Model {
 
         @summary    update complete list of plugins
         @access     public
+
+        @param      $pluginID   => ID of plugin
+        @param      $data       => array($key => $value) of values to be inserted
+
         @return     boolean
     ##################################################################################################################*/
     public function updatePlugin($pluginID, $data){
         $this->db->where('pluginID', (int)$pluginID);
-        if($this->db->update('tbl_plugin', $data)){
+        if($this->db->update('tbl_plugin', $this->_converter->prepareForDatabase($data))){
+            return TRUE;
+        } else {
+            return FALSE;
+        }
+    }
+
+    /*##################################################################################################################
+        function insertIntoTable()
+
+        @summary    insert data array into table
+        @access     public
+
+        @param      $table  => name of table
+        @param      $data   => array($key => $value) of values to be inserted
+
+        @return     boolean
+    ##################################################################################################################*/
+    public function updatePlugin($table, $data){
+        if($this->db->insert($table, $this->_converter->prepareForDatabase($data))){
             return TRUE;
         } else {
             return FALSE;

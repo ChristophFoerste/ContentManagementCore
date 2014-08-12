@@ -155,6 +155,7 @@ class system extends CI_Controller {
                                 }
                             }
                             break;
+
                         case 'views':
                             $path = './application/views/'.$pluginConfigName.'/';
                             foreach($list as $listKey => $listValue){
@@ -164,6 +165,7 @@ class system extends CI_Controller {
                                 }
                             }
                             break;
+
                         default:
                             $path = './application/'.$key.'/';
                             foreach($list as $listKey => $listValue){
@@ -230,6 +232,8 @@ class system extends CI_Controller {
         $this->load->library('upload', $uploadConfig);
         $this->upload->initialize($uploadConfig);
 
+        $this->load->helper('file');
+
         //upload file
         if(!$this->upload->do_upload("pluginArchive")){
             $result = new stdClass();
@@ -242,8 +246,8 @@ class system extends CI_Controller {
             if($result === TRUE){
                 //extract archive
                 if($zip->extractTo('./dynamicContents/temp/pluginTemp/')){
-                    //unlink('./dynamicContents/temp/pluginTemp.zip'); //delete uploaded zip archive
                     if($this->installArchiveFiles()){
+                        delete_files('./dynamicContents/temp/pluginTemp/', TRUE);
                         $result = new stdClass();
                         $result->dialogTitle = $this->lang->line('application_dialogTitle_hint');
                         $result->successMessage = $this->lang->line('system_dialog_pluginInstallation_successPluginInstalled');
@@ -271,10 +275,70 @@ class system extends CI_Controller {
 * take all files of ectracted zip archive and put them into right place
 *
 *
-* return string representation of true or false
+* return boolean
 */
-    private function installArchiveFiles($directory = './dynamicContents/temp/pluginArchive/'){
+    private function installArchiveFiles($directory = './dynamicContents/temp/pluginTemp/'){
+        //set default values of variables
+        $configFileFound = FALSE;
+        //search for config files
+        if($dirHandle = opendir($directory)) {
+            while(($file = readdir($dirHandle)) !== false){
+                if(!in_array($file, array('.', '..'))){
+                    if(strpos($file, '_config.php')){
+                        $configFileFound = TRUE;
+                        include_once($directory.$file);
+                    }
+                }
+            }
+        } else {
+            return FALSE;
+        }
 
-        return TRUE;
+        if($configFileFound){
+            //copy files from extracted zip archive to destination
+            foreach($pluginConfig as $key => $list){
+                switch($key){
+                    case 'language':
+                        if($dirHandle = opendir($directory.$key)) {
+                            while(($dir = readdir($dirHandle)) !== false){
+                                if(!in_array($dir, array('.', '..')) && is_dir($directory.$key.'/'.$dir)){
+                                    //create folder if neccessary
+                                    if(!is_dir('./application/'.$key.'/'.$dir.'/')){
+                                        mkdir('./application/'.$key.'/'.$dir.'/', 0777);
+                                    }
+                                    //copy files to application
+                                    foreach($list as $listKey => $listValue){
+                                        rename($directory.$key.'/'.$dir.'/'.$listValue, './application/'.$key.'/'.$dir.'/'.$listValue);
+                                    }
+                                }
+                            }
+                        }
+                        break;
+
+                    case 'views':
+                        //create folder if neccessary
+                        if(!is_dir('./application/'.$key.'/'.$pluginConfigName.'/')){
+                            mkdir('./application/'.$key.'/'.$pluginConfigName.'/', 0777);
+                        }
+                        //copy files to application
+                        foreach($list as $listKey => $listValue){
+                            rename($directory.$key.'/'.$listValue, './application/'.$key.'/'.$pluginConfigName.'/'.$listValue);
+                        }
+                        break;
+
+                    default:
+                        //copy files to application
+                        foreach($list as $listKey => $listValue){
+                            rename($directory.$key.'/'.$listValue, './application/'.$key.'/'.$listValue);
+                        }
+                        break;
+                }
+            }
+            //create neccessary database fields/entries
+
+            return TRUE;
+        } else {
+            return FALSE;
+        }
     }
 }
