@@ -215,5 +215,7 @@ pip-log.txt
 .mr.developer.cfg
 
 #PHP Storm
-.idea/
+idea/
+application/logs/
+dynamicContents/
 .idea/workspace.xml

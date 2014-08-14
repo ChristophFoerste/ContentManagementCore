@@ -335,7 +335,21 @@ class system extends CI_Controller {
                 }
             }
             //create neccessary database fields/entries
+            if($this->System_model->pluginExists($pluginConfigName)){
+                //plugin exists, perform update
+            } else {
+                //plugin does not exist, perform insertion
+                $this->System_model->insertIntoTable('tbl_plugin', $pluginConfigDB->tblPlugin);
+                $plugin = $this->System_model->getPlugin(array('plugin_systemName' => $pluginConfigName));
+                foreach($pluginConfigDB->tblPluginDescription as $key => $value){
+                    $data = array();
+                    $data['pluginDescription_pluginID'] = $plugin->pluginID;
+                    $data['pluginDescription_languageID'] = $key;
+                    $data['plufinDescription_name'] = $value;
 
+                    $this->System_model->insertIntoTable('tbl_pluginDescription', $data);
+                }
+            }
             return TRUE;
         } else {
             return FALSE;
