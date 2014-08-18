@@ -18,7 +18,7 @@
                     <?php
                         $pluginManager = new \System\Plugin\Manager();
                         foreach($availablePlugins as $plugin) {
-                            if($pluginManager->isPluginAvailable($plugin->plugin_systemName, $admin->languageID)){// && $admin->hasPermission($plugin->plugin_requiredPermission)) {
+                            if($pluginManager->isPluginAvailable($plugin->plugin_systemName, $admin->languageID) && $admin->hasPermission($plugin->plugin_systemName.';admin')){
                                 $listClass = "";
                                 if($plugin->plugin_systemName === $currentPlugin) {
                                     $listClass = "class=\"active\"";

@@ -41,7 +41,7 @@ class Admin_model extends CI_Model {
             $admin->languageID = $row->admin_languageID;
             $admin->genderTypeID = $row->admin_genderTypeID;
             $admin->email = $row->admin_email;
-            $admin->permissions = $row->admin_permission;
+            $admin->permissions = $this->getCurrentAdminPermissions($row->adminID);
             $admin->password = md5($row->admin_password);
             $admin->settings->isPushmenuCollapsed = $row->adminSettings_pushMenuCollapsed;
             $admin->settings->bootstrapTheme = $row->adminSettings_bootstrapTheme;
@@ -50,6 +50,25 @@ class Admin_model extends CI_Model {
             return $admin;
         } else {
             return new \System\User\Admin();
+        }
+    }
+
+    /*##################################################################################################################
+        function getAdminList()
+
+        @summary    get all results of tbl_adminPermission
+        @access     private
+        @return     array of mixed objects
+    ##################################################################################################################*/
+    public function getCurrentAdminPermissions($adminID) {
+        $this->db->select("*");
+        $this->db->where(array('adminPermission_adminID' => $adminID));
+        $query = $this->db->get("tbl_adminPermission");
+
+        if(!$query || $query->row() == NULL){
+            return NULL;
+        } else {
+            return $query->row();
         }
     }
 

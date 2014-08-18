@@ -65,22 +65,24 @@ class Admin
         } else {
             $searchArray[] = $requiredPermissions;
         }
-        $adminPermissions = explode(";", $this->permissions);
 
-        print_r($requiredPermissions);
         switch($searchMethod) {
             case "OR":
                 $result = FALSE;
                 foreach($searchArray as $permission) {
-                    if(in_array($permission, $adminPermissions))
+                    $permission = 'adminPermission_'.$permission;
+                    if(isset($this->permissions->$permission) && $this->permissions->$permission){
                         $result = TRUE;
+                    }
                 }
                 break;
             case "AND":
                 $result = TRUE;
                 foreach($searchArray as $permission) {
-                    if(!in_array($permission, $adminPermissions))
+                    $permission = 'adminPermission_'.$permission;
+                    if(!isset($this->permissions->$permission) || !$this->permissions->$permission){
                         $result = FALSE;
+                    }
                 }
                 break;
             default:

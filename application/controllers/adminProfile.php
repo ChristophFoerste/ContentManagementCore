@@ -42,6 +42,16 @@ class adminProfile extends CI_Controller {
 
         $this->data['pushMenu'] = $this->_pushMenu;
         $this->data['pushMenuCollapsed'] = $this->_pushMenuCollapsed;
+
+        //permission to use this plugin is denied ->redirect to error page
+        if(!$this->_admin->hasPermission('admin;'.get_class($this))){
+            $this->permissionDenied();
+        }
+    }
+
+    public function permissionDenied(){
+        $this->data['websiteContent'] = $this->load->view("errors/permission_denied", NULL, TRUE);
+        $this->load->view('template/template', $this->data);
     }
 
     public function index() {

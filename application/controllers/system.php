@@ -17,6 +17,9 @@ class system extends CI_Controller {
             die;
         }
 
+        //load models
+        $this->load->model('System_model');
+
         //load language files
         $this->lang->load('application', $this->_admin->languageID);
         $this->lang->load(get_class($this), $this->_admin->languageID);
@@ -37,6 +40,16 @@ class system extends CI_Controller {
 
         $this->data['pushMenu'] = $this->_pushMenu;
         $this->data['pushMenuCollapsed'] = $this->_pushMenuCollapsed;
+
+        //permission to use this plugin is denied ->redirect to error page
+        if(!$this->_admin->hasPermission('admin;'.get_class($this))){
+            $this->permissionDenied();
+        }
+    }
+
+    public function permissionDenied(){
+        $this->data['websiteContent'] = $this->load->view("errors/permission_denied", NULL, TRUE);
+        $this->load->view('template/template', $this->data);
     }
 
 /*
@@ -92,7 +105,6 @@ class system extends CI_Controller {
  */
     public function updateActivePlugins(){
         $plugins = $this->ControlTable_model->getTable('qry_controlTable_plugin', array('pluginDescription_languageID' => (int)$this->_admin->languageID, 'plugin_isEditable' => TRUE));
-        $this->load->model('System_model');
 
         $result = TRUE;
         foreach($plugins as $plugin){
@@ -254,12 +266,12 @@ class system extends CI_Controller {
                     } else {
                         $result = new stdClass();
                         $result->dialogTitle = $this->lang->line('application_dialogTitle_error');
-                        $result->successMessage = $this->lang->line('system_dialog_pluginInstallation_errorCantOpenZIP');
+                        $result->errorMessage = $this->lang->line('system_dialog_pluginInstallation_errorCantOpenZIP');
                     }
                 } else {
                     $result = new stdClass();
                     $result->dialogTitle = $this->lang->line('application_dialogTitle_error');
-                    $result->successMessage = $this->lang->line('system_dialog_pluginInstallation_errorCantOpenZIP');
+                    $result->errorMessage = $this->lang->line('system_dialog_pluginInstallation_errorCantOpenZIP');
                 }
             } else {
                 $result = new stdClass();
@@ -295,64 +307,90 @@ class system extends CI_Controller {
         }
 
         if($configFileFound){
-            //copy files from extracted zip archive to destination
-            foreach($pluginConfig as $key => $list){
-                switch($key){
-                    case 'language':
-                        if($dirHandle = opendir($directory.$key)) {
-                            while(($dir = readdir($dirHandle)) !== false){
-                                if(!in_array($dir, array('.', '..')) && is_dir($directory.$key.'/'.$dir)){
-                                    //create folder if neccessary
-                                    if(!is_dir('./application/'.$key.'/'.$dir.'/')){
-                                        mkdir('./application/'.$key.'/'.$dir.'/', 0777);
-                                    }
-                                    //copy files to application
-                                    foreach($list as $listKey => $listValue){
-                                        rename($directory.$key.'/'.$dir.'/'.$listValue, './application/'.$key.'/'.$dir.'/'.$listValue);
+            if(!isset($pluginConfigDependencies) || $this->checkDependencies($pluginConfigDependencies)){
+                //copy files from extracted zip archive to destination
+                foreach($pluginConfig as $key => $list){
+                    switch($key){
+                        case 'language':
+                            if($dirHandle = opendir($directory.$key)) {
+                                while(($dir = readdir($dirHandle)) !== false){
+                                    if(!in_array($dir, array('.', '..')) && is_dir($directory.$key.'/'.$dir)){
+                                        //create folder if neccessary
+                                        if(!is_dir('./application/'.$key.'/'.$dir.'/')){
+                                            mkdir('./application/'.$key.'/'.$dir.'/', 0777);
+                                        }
+                                        //copy files to application
+                                        foreach($list as $listKey => $listValue){
+                                            rename($directory.$key.'/'.$dir.'/'.$listValue, './application/'.$key.'/'.$dir.'/'.$listValue);
+                                        }
                                     }
                                 }
                             }
-                        }
-                        break;
+                            break;
 
-                    case 'views':
-                        //create folder if neccessary
-                        if(!is_dir('./application/'.$key.'/'.$pluginConfigName.'/')){
-                            mkdir('./application/'.$key.'/'.$pluginConfigName.'/', 0777);
-                        }
-                        //copy files to application
-                        foreach($list as $listKey => $listValue){
-                            rename($directory.$key.'/'.$listValue, './application/'.$key.'/'.$pluginConfigName.'/'.$listValue);
-                        }
-                        break;
+                        case 'views':
+                            //create folder if neccessary
+                            if(!is_dir('./application/'.$key.'/'.$pluginConfigName.'/')){
+                                mkdir('./application/'.$key.'/'.$pluginConfigName.'/', 0777);
+                            }
+                            //copy files to application
+                            foreach($list as $listKey => $listValue){
+                                rename($directory.$key.'/'.$listValue, './application/'.$key.'/'.$pluginConfigName.'/'.$listValue);
+                            }
+                            break;
 
-                    default:
-                        //copy files to application
-                        foreach($list as $listKey => $listValue){
-                            rename($directory.$key.'/'.$listValue, './application/'.$key.'/'.$listValue);
-                        }
-                        break;
+                        default:
+                            //copy files to application
+                            foreach($list as $listKey => $listValue){
+                                rename($directory.$key.'/'.$listValue, './application/'.$key.'/'.$listValue);
+                            }
+                            break;
+                    }
                 }
-            }
-            //create neccessary database fields/entries
-            if($this->System_model->pluginExists($pluginConfigName)){
-                //plugin exists, perform update
+                //create neccessary database fields/entries
+                if(!$this->System_model->pluginExists($pluginConfigName)){
+                    //plugin does not exist, insert data into datebase
+                    $this->System_model->insertIntoTable('tbl_plugin', $pluginConfigDB->tblPlugin);
+                    //insert into tbl_pluginDescription
+                    $plugin = $this->System_model->getPlugin(array('plugin_systemName' => $pluginConfigName));
+                    foreach($pluginConfigDB->tblPluginDescription as $key => $value){
+                        $data = array();
+                        $data['pluginDescription_pluginID'] = $plugin->pluginID;
+                        $data['pluginDescription_languageID'] = $key;
+                        $data['pluginDescription_name'] = $value;
+
+                        $this->System_model->insertIntoTable('tbl_pluginDescription', $data);
+                    }
+                    //add neccessary fields in tbl_adminPermission
+                    if(!$this->System_model->fieldExists('tbl_adminPermission', $pluginConfigDB->tblAdminPermission['fieldName'])){
+                        if(!$this->System_model->addPermissionField($pluginConfigDB->tblAdminPermission['fieldName'], $pluginConfigDB->tblAdminPermission['standardValue'])){
+                            return FALSE;
+                        }
+                    }
+                }
+                return TRUE;
             } else {
-                //plugin does not exist, perform insertion
-                $this->System_model->insertIntoTable('tbl_plugin', $pluginConfigDB->tblPlugin);
-                $plugin = $this->System_model->getPlugin(array('plugin_systemName' => $pluginConfigName));
-                foreach($pluginConfigDB->tblPluginDescription as $key => $value){
-                    $data = array();
-                    $data['pluginDescription_pluginID'] = $plugin->pluginID;
-                    $data['pluginDescription_languageID'] = $key;
-                    $data['plufinDescription_name'] = $value;
-
-                    $this->System_model->insertIntoTable('tbl_pluginDescription', $data);
-                }
+                return FALSE;
             }
-            return TRUE;
         } else {
             return FALSE;
         }
+    }
+
+/*
+* loop through dependency array and check existence of each file
+*
+* return boolean
+*/
+    public function checkDependencies($arrDependencies = NULL){
+        if($arrDependencies == NULL){
+            foreach($arrDependencies as $dependency){
+                if(!file_exists($dependency)){
+                    return FALSE;
+                }
+            }
+        }
+
+        return TRUE;
     }
 }

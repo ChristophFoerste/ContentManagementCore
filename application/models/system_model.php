@@ -76,13 +76,35 @@ class System_model extends CI_Model {
             $buffer = $query->result();
             $buffer = $buffer[0];
             foreach($buffer as $key => $value){
-                if($key == $field){
+                if($key == 'adminPermission_'.$field){
                     $result = TRUE;
                 }
             }
         }
 
         return $result;
+    }
+
+    /*##################################################################################################################
+        function addPermissionField()
+
+        @summary    insert data array into table
+        @access     public
+
+        @param      $name   => name of field
+        @param      $value  => standard value of field
+
+        @return     boolean
+    ##################################################################################################################*/
+    function addPermissionField($name, $value){
+        $sql = "ALTER TABLE tbl_adminPermission ADD COLUMN adminPermission_".$name." YESNO"; // DEFAULT (".$value.")";
+        $result = $this->db->query($sql);
+
+        if($result){
+            return TRUE;
+        } else {
+            return FALSE;
+        }
     }
 
     /*##################################################################################################################
@@ -99,11 +121,10 @@ class System_model extends CI_Model {
         $result = FALSE;
         $this->db->where(array('plugin_systemName' => $plugin));
         $query = $this->db->get('tbl_plugin');
-        if(!$query || $query->num_rows() == 0){
+        if(!$query || $query->row() == NULL){
             $result = FALSE;
         } else {
-            $buffer = $query->result();
-            $buffer = $buffer[0];
+            $buffer = $query->row();
             $result = $buffer->pluginID;
         }
 
