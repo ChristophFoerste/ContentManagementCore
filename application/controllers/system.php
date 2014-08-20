@@ -266,7 +266,7 @@ class system extends CI_Controller {
                     } else {
                         $result = new stdClass();
                         $result->dialogTitle = $this->lang->line('application_dialogTitle_error');
-                        $result->errorMessage = $this->lang->line('system_dialog_pluginInstallation_errorCantOpenZIP');
+                        $result->errorMessage = $this->lang->line('system_dialog_pluginInstallation_errorCantInstallZIP');
                     }
                 } else {
                     $result = new stdClass();
@@ -362,11 +362,13 @@ class system extends CI_Controller {
                         $this->System_model->insertIntoTable('tbl_pluginDescription', $data);
                     }
                     //add neccessary fields in tbl_adminPermission
+                    /*
                     if(!$this->System_model->fieldExists('tbl_adminPermission', $pluginConfigDB->tblAdminPermission['fieldName'])){
                         if(!$this->System_model->addPermissionField($pluginConfigDB->tblAdminPermission['fieldName'], $pluginConfigDB->tblAdminPermission['standardValue'])){
                             return FALSE;
                         }
                     }
+                    */
                 }
                 return TRUE;
             } else {
