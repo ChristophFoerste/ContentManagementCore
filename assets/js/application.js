@@ -19,42 +19,45 @@ $(document).ready(function(){
                         if(sender != undefined) {
                             sender.removeAttr('disabled');
                         }
+
+                        Application.Loader.Show();
                     },
                     success : function(data){
                         //enable sender
                         if(sender != undefined) {
                             sender.removeAttr('disabled');
                         }
+
                         resultFunction(data);
+
+                        Application.Loader.Hide();
                     },
                     error : function() {
                         //enable sender
                         if(sender != undefined) {
                             sender.removeAttr('disabled');
                         }
+
                         resultFunction("error");
+
+                        Application.Loader.Hide();
                     }
                 });
             }
         },
 
-        Popup : {
-            /*
-            Alert : function(sender) {
-                sender.attr('disabled', 'disabled');
-
-                var alertDialog = bootbox.alert({
-                    message:        sender.attr('data-dialogMessage'),
-                    title:          sender.attr('data-dialogTitle'),
-                    closeButton:    false,
-                    callback:       function(){
-                                        sender.removeAttr("disabled");
-                                    }
-                });
+        Loader : {
+            Show : function(){
+                $('#application-loader').removeClass('hidden');
             },
-            */
-            Hint : function(title, message) {
 
+            Hide : function(){
+                $('#application-loader').addClass('hidden');
+            }
+        },
+
+        Popup : {
+            Hint : function(title, message) {
                 var alertDialog = bootbox.alert({
                     title:          title,
                     message:        message,
@@ -64,7 +67,6 @@ $(document).ready(function(){
             },
 
             Error : function(title, message) {
-
                 var alertDialog = bootbox.alert({
                     title:          title,
                     message:        message,
@@ -85,7 +87,7 @@ $(document).ready(function(){
                     url:        sender.attr('data-requestURL'),
                     type:       'POST',
                     beforeSend: function(data){
-                                    /*do something before sending ajax-request*/
+                                    Application.Loader.Show();
                                 },
                     success:    function(data){
                                     var dialog = bootbox.dialog({
@@ -110,6 +112,8 @@ $(document).ready(function(){
                                                             }
                                                         }
                                     });
+
+                                    Application.Loader.Hide();
                                 },
                     error:      function(data){
                                     if(appOptions.debug){
@@ -117,6 +121,8 @@ $(document).ready(function(){
                                         alert("error occured, please look at firebug console");
                                     }
                                     sender.removeAttr('disabled');
+
+                                    Application.Loader.Hide();
                                 }
                 });
             }

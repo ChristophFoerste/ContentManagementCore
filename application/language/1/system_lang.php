@@ -44,6 +44,7 @@ $lang['system_dialog_pluginInstallation_buttonLabelCancel']         = 'abbrechen
 
 //dialog install plugin error-/successMessages
 $lang['system_dialog_pluginInstallation_errorCantOpenZIP']          = 'ZIP-Archiv konnte nicht geöffnet werden.';
+$lang['system_dialog_pluginInstallation_errorCantInstallZIP']       = 'ZIP-Archiv konnte nicht vollständig installiert werden.';
 $lang['system_dialog_pluginInstallation_errorCantUploadFile']       = 'Datei konnte nicht hochgeladen werden';
 $lang['system_dialog_pluginInstallation_successPluginInstalled']    = 'Die Erweiterung wurde erfolgreich installiert.';
 ?>

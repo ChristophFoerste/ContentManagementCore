@@ -8,4 +8,7 @@ $lang['application_navigation_userLogout']          = "<i class=\"fa fa-fw fa-po
 //standard dialog titles
 $lang['application_dialogTitle_error']              = "Error";
 $lang['application_dialogTitle_hint']               = "Information";
+
+//loading indocators
+$lang['application_loading_text']                   = "loading";
 ?>

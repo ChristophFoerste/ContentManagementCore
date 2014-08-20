@@ -8,7 +8,7 @@
     <div class="col-xs-12 col-sm-4 col-md-4 col-lg-3">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <strong><?php echo $this->lang->line('system_option_activePlugins');?></strong>
+                <strong><i class="fa fa-fw fa-check-square-o"></i> <?php echo $this->lang->line('system_option_activePlugins');?></strong>
             </div>
             <div class="panel-body">
                 <p style="text-align: justify;"><small><?php echo $this->lang->line("system_hint_activePlugins"); ?></p></small></p>
@@ -19,7 +19,7 @@
     <div class="col-xs-12 col-sm-4 col-md-4 col-lg-3">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <strong><?php echo $this->lang->line('system_option_backup');?></strong>
+                <strong><i class="fa fa-fw fa-copy"></i> <?php echo $this->lang->line('system_option_backup');?></strong>
             </div>
             <div class="panel-body">
                 <p style="text-align: justify;"><small><?php echo $this->lang->line("system_hint_backup"); ?></p></small></p>
@@ -30,7 +30,7 @@
     <div class="col-xs-12 col-sm-4 col-md-4 col-lg-3">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <strong><?php echo $this->lang->line('system_option_installPlugin');?></strong>
+                <strong><i class="fa fa-fw fa-upload"></i> <?php echo $this->lang->line('system_option_installPlugin');?></strong>
             </div>
             <div class="panel-body">
                 <p style="text-align: justify;"><small><?php echo $this->lang->line("system_hint_installPlugin"); ?></p></small></p>

@@ -97,10 +97,10 @@ class System_model extends CI_Model {
         @return     boolean
     ##################################################################################################################*/
     function addPermissionField($name, $value){
-        $sql = "ALTER TABLE tbl_adminPermission ADD COLUMN adminPermission_".$name." YESNO"; // DEFAULT (".$value.")";
-        $result = $this->db->query($sql);
+        $this->load->dbforge();
+        $fields = array($name => array('type' => 'YESNO', 'default' => $value));
 
-        if($result){
+        if($this->dbforge->add_column('tbl_adminPermission', $fields)){
             return TRUE;
         } else {
             return FALSE;
