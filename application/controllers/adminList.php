@@ -47,7 +47,8 @@ class adminList extends CI_Controller {
 
     public function index() {
         $this->_viewData['admin'] = $this->_admin;
-        $this->_viewData['adminTable'] = $this->getAdminTable(TRUE);
+        //$this->_viewData['adminTable'] = $this->getAdminTable(TRUE);
+		$this->_viewData['adminTable'] = $this->getAdminTableJSON();
 
 
         $this->data['websiteContent'] = $this->load->view("adminList/list", $this->_viewData, TRUE);
@@ -62,4 +63,22 @@ class adminList extends CI_Controller {
 
         return $this->load->view("adminList/data_list", $this->_viewData, $toVariable);
     }
+	
+	 public function getAdminTableJSON(){
+        $this->_viewData['admin'] = $this->_admin;
+
+        //conversion of db column names to converted ones
+        $columnConversionArray['ID'] = 'ID';
+        $columnConversionArray['admin_username'] = 'Nutzername';
+        $columnConversionArray['admin_realName'] = 'Name';
+        $columnConversionArray['admin_lastActive'] = 'letzte Anmeldung';
+        $columnConversionArray['admin_userAgent'] = 'genutzter Browser';
+        $this->_viewData['columnConversionArray'] = json_encode($columnConversionArray);
+
+        return $this->load->view("adminList/data_list_json", $this->_viewData, TRUE);
+    }
+	
+	public function getAdminJsonData(){
+		echo json_encode($this->AdminList_model->getAdminList());
+	}
 }

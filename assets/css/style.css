@@ -54,3 +54,16 @@ span.search-highlight {
     background: yellow;
     font-weight: bold;
 }
+
+/*######################################################################################################################
+                                            styles of grid
+######################################################################################################################*/
+
+.grid-column-header{
+    padding-right: 5px;
+}
+
+.grid-column-sort{
+    cursor: pointer;
+    padding-right: 20px;
+}
