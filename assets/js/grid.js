@@ -4,6 +4,7 @@ $(document).ready(function(){
     Grid = {
         debug : appOptions.debug,                   //debug status of grid
 		parent : undefined,                         //element the grid is build in
+        parentRow : undefined,                      //parent row of grid
 		data : undefined,                           //complete json data
         dataSelection : undefined,                  //json data selection (e.g. after searching)
 		tableHeadConversionArray : undefined,       //array with column name conversion
@@ -11,6 +12,13 @@ $(document).ready(function(){
         sortColumn : 0,                             //column to sort
         sortDirection : 'asc',                      //sort direction of column
         isInitialized : true,                       //internal status for some sorting stuff after initialization
+        totalRows : 0,                              //number or rows
+        totalPages : 1,                             //number of pages
+        currentPage : 1,                            //current selected page
+        rowsPerPage : 15,                           //number of datasets per page
+        rowsArray : new Array(15,25,50,100),        //list of available datasets per page
+
+
 
         /*
         *   initialize grid
@@ -20,6 +28,7 @@ $(document).ready(function(){
         */
         Initialize : function(parentElement, tableHeadConversionArray) {
 			Grid.parent = parentElement;
+            Grid.parentRow = parentElement.parent().parent().parent();
 			Grid.tableHeadConversionArray = tableHeadConversionArray;
             Grid.sortDirection = 'asc';
 
@@ -38,6 +47,7 @@ $(document).ready(function(){
 				success:		function(data){
 									Grid.data = jQuery.parseJSON(data);
                                     Grid.dataSelection = Grid.data;
+                                    Grid.totalRows = Grid.dataSelection.length;
                                     Grid._createHeaderData();
                                     Grid._sortData();
 									Grid._renderData();
@@ -70,6 +80,7 @@ $(document).ready(function(){
                     var headObj = new Object();
                     headObj.columnName = key;
                     headObj.displayName = keyConversion;
+                    headObj.isVisible = true;
                     if(Grid.isInitialized){
                         headObj.sortType = 'asc';
                         Grid.isInitialized = false;
@@ -97,7 +108,9 @@ $(document).ready(function(){
             htmlTableOptions = htmlTableOptions + '</ul>';
             htmlTableOptions = htmlTableOptions + '</div>';
 
-            var htmlTable = '<div class="panel panel-default"><div class="panel-heading"><strong>' + Grid.parent.attr('data-tableTitle') + '</strong>' + htmlTableOptions + '</div><div class="panel-body"><div class="table-responsive"><table class="table table-condensed table-striped table-hover" class="grid" ><thead class="grid-head"></thead><tbody class="grid-body"></tbody></table></div></div></div>';
+            var htmlTable = '<div class="panel panel-default"><div class="panel-heading"><strong>' + Grid.parent.attr('data-tableTitle') + '</strong>' + htmlTableOptions + '</div><div class="panel-body" style="padding-bottom: 5px;"><div class="table-responsive" style="margin-bottom: -15px;"><table class="table table-condensed table-striped table-hover" class="grid" style="margin-bottom: 0px;" ><thead class="grid-head"></thead><tbody class="grid-body"></tbody></table></div>';
+            htmlTable = htmlTable + Grid._renderPagination();
+            htmlTable = htmlTable + '</div></div>';
 
             Grid.parent.html(htmlTable);
 			Grid.parent.find('.grid-head').html(Grid._renderTableHeadData());
@@ -111,6 +124,7 @@ $(document).ready(function(){
         _renderTableHeadData : function(){
             var htmlHead = "";
             if(Grid.dataSelection.length > 0){
+                console.log(Grid.totalRows);
                 jQuery.each(Grid.dataSelection[1], function(key, value){
                     for(var i = 0; i < Grid.tableHeadData.length; i++){
                         if(Grid.tableHeadData[i].columnName == key){
@@ -137,13 +151,30 @@ $(document).ready(function(){
             return htmlHead;
         },
 
+        _renderPagination : function(){
+            Grid.totalPages = Math.floor(Grid.totalRows / Grid.rowsPerPage) + 1;
+            var pagination = '';
+            pagination = pagination + '<ul class="pagination pagination-sm pull-right" style="margin-bottom: 0px;">';
+            pagination = pagination + '<li class="grid-pagination-previous" style="cursor: pointer;"><span>&laquo;</span></li>';
+            pagination = pagination + '<li><span><input type="text" class="grid-pagination-counter" style="background: transparent; width: 20px; height: 16px; border: none; color: inherit; text-align: right;" value="' + Grid.currentPage + '" /> / ' + Grid.totalPages + '</span></li>';
+            pagination = pagination + '<li class="grid-pagination-next" style="cursor: pointer;"><span>&raquo;</span></li>';
+            pagination = pagination + '</ul>';
+
+            return pagination;
+        },
+
         /*
         *   render table body
         *
         */
         _renderTableBodyData : function(){
             var htmlBody = "";
-            for(var i = 0; i < Grid.dataSelection.length; i++){
+            var start = (Grid.currentPage - 1) * Grid.rowsPerPage;
+            var end = Grid.currentPage * Grid.rowsPerPage;
+            if(end > Grid.dataSelection.length){
+                end = Grid.dataSelection.length;
+            }
+            for(var i = start; i < end; i++){
                 htmlBody = htmlBody + '<tr>';
                 jQuery.each(Grid.dataSelection[i], function(key, value){
                     if(value instanceof Object){
@@ -257,6 +288,8 @@ $(document).ready(function(){
                     }
                 }
 
+                Grid.currentPage = 1;
+
                 Grid._sortData();
                 Grid._renderData();
             });
@@ -266,7 +299,8 @@ $(document).ready(function(){
 
                 var columnName = $(this).attr('data-columnName');
 
-                alert(columnName);
+                Grid.parentRow.find('.grid-column').removeClass('col-xs-12').addClass('col-xs-9');
+                Grid.parentRow.find('.grid-search-column').removeClass('hidden');
             });
             //refresh complete grid by new initialization
             Grid.parent.off('click', '.grid-option-refresh').on('click', '.grid-option-refresh', function(){
@@ -275,6 +309,41 @@ $(document).ready(function(){
             //open dialog to hide or show columns
             Grid.parent.off('click', '.grip-option-hideShowColumn').on('click', '.grip-option-hideShowColumn', function(){
                 alert('available soon');
+            });
+            //pagination previous click
+            Grid.parent.off('click', '.grid-pagination-previous').on('click', '.grid-pagination-previous', function(){
+                var currentCount = parseInt($('.grid-pagination-counter').val());
+                if(isNaN(currentCount) || currentCount <= 1){
+                    currentCount = 1;
+                } else {
+                    currentCount = currentCount - 1;
+                }
+                Grid.currentPage = currentCount;
+                $('.grid-pagination-counter').val(currentCount).change();
+
+            });
+            //pagination next click
+            Grid.parent.off('click', '.grid-pagination-next').on('click', '.grid-pagination-next', function(){
+                var currentCount = parseInt($('.grid-pagination-counter').val());
+                if(isNaN(currentCount) || currentCount >= Grid.totalPages){
+                    currentCount = Grid.totalPages;
+                } else {
+                    currentCount = currentCount + 1;
+                }
+                Grid.currentPage = currentCount;
+                $('.grid-pagination-counter').val(currentCount).change();
+            });
+            //pagination counter change
+            Grid.parent.off('change', '.grid-pagination-counter').on('change', '.grid-pagination-counter', function(){
+                var currentCount = parseInt($(this).val());
+                if(isNaN(currentCount) || currentCount <= 1){
+                    currentCount = 1;
+                } else {
+                    if(isNaN(currentCount) || currentCount >= Grid.totalPages){
+                        currentCount = Grid.totalPages;
+                    }
+                }
+                Grid.parent.find('.grid-body').html(Grid._renderTableBodyData());
             });
         }
     }

@@ -5,7 +5,10 @@
 </div-->
 
 <div class="row">
-    <div class="col-xs-12">
+    <div class="col-xs-3 grid-search-column hidden">
+
+    </div>
+    <div class="col-xs-12 grid-column">
         <?php echo $adminTable; ?>
     </div>
 </div>
