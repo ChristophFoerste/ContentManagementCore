@@ -4,7 +4,7 @@
     grid = {
         jsonData: null,                                 //received json-data for grid (complete list)
         selectionData: null,                            //temporary filtered list (subset of jsonData)
-        totalRows: 0                                    //number of total rows (based on selectionData)
+        totalRows: 0                                    //number of total rows (based on selectionData)  
     };
 
     defaults = {
