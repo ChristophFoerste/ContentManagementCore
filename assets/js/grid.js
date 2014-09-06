@@ -31,6 +31,7 @@ $(document).ready(function(){
             Grid.parentRow = parentElement.parent().parent().parent();
 			Grid.tableHeadConversionArray = tableHeadConversionArray;
             Grid.sortDirection = 'asc';
+            Grid.currentPage = 1;
 
             if(Grid.parent == undefined){
                 Grid._throwErrorMessage('001');
@@ -108,7 +109,9 @@ $(document).ready(function(){
             htmlTableOptions = htmlTableOptions + '</ul>';
             htmlTableOptions = htmlTableOptions + '</div>';
 
-            var htmlTable = '<div class="panel panel-default"><div class="panel-heading"><strong>' + Grid.parent.attr('data-tableTitle') + '</strong>' + htmlTableOptions + '</div><div class="panel-body" style="padding-bottom: 5px;"><div class="table-responsive" style="margin-bottom: -15px;"><table class="table table-condensed table-striped table-hover" class="grid" style="margin-bottom: 0px;" ><thead class="grid-head"></thead><tbody class="grid-body"></tbody></table></div>';
+            var htmlTableColumnVisibilityOptions = Grid._renderColumnVisibilityOptions();
+
+            var htmlTable = '<div class="panel panel-default"><div class="panel-heading"><strong>' + Grid.parent.attr('data-tableTitle') + '</strong>' + htmlTableColumnVisibilityOptions + htmlTableOptions + '</div><div class="panel-body" style="padding-bottom: 5px;"><div class="table-responsive" style="margin-bottom: -15px;"><table class="table table-condensed table-striped table-hover" class="grid" style="margin-bottom: 0px;" ><thead class="grid-head"></thead><tbody class="grid-body"></tbody></table></div>';
             htmlTable = htmlTable + Grid._renderPagination();
             htmlTable = htmlTable + '</div></div>';
 
@@ -186,6 +189,29 @@ $(document).ready(function(){
             }
 
             return htmlBody;
+        },
+
+        /*
+         *
+         *
+         */
+        //
+        _renderColumnVisibilityOptions : function(){
+            var html = '<div class="btn-group pull-right"><button type="button" class="btn btn-xs btn-default dropdown-toggle" data-toggle="dropdown"><i class="fa fa-fw fa-check-o"></i> <span class="caret"></span></button><ul class="dropdown-menu" role="menu">';
+            if(Grid.dataSelection.length > 0){
+                console.log(Grid.totalRows);
+                jQuery.each(Grid.dataSelection[1], function(key, value){
+                    for(var i = 0; i < Grid.tableHeadData.length; i++){
+                        if(Grid.tableHeadData[i].columnName == key){
+                            html = html + '<th><span class="grid-column-header" data-columnName="' + Grid.tableHeadData[i].columnName + '">' + Grid.tableHeadData[i].displayName + '</span></th>';
+                        }
+                    }
+                });
+            }
+
+            html = html + '</ul></div>';
+
+            return html;
         },
 
         /*
@@ -305,6 +331,9 @@ $(document).ready(function(){
             //refresh complete grid by new initialization
             Grid.parent.off('click', '.grid-option-refresh').on('click', '.grid-option-refresh', function(){
                 Grid.Initialize(Grid.parent, Grid.tableHeadConversionArray);
+
+                Grid.parentRow.find('.grid-column').removeClass('col-xs-9').addClass('col-xs-12');
+                Grid.parentRow.find('.grid-search-column').addClass('hidden');
             });
             //open dialog to hide or show columns
             Grid.parent.off('click', '.grip-option-hideShowColumn').on('click', '.grip-option-hideShowColumn', function(){

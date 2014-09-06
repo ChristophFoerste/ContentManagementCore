@@ -42,7 +42,7 @@
         <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/jquery.scroll.min.js"></script>
         <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/dropzone.js"></script>
         <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/application.js"></script>
-		<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/grid.js"></script>
+		<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/jquery.grid.js"></script>
         <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/main.js"></script>
     </head>
     <body>
