@@ -1,46 +1,34 @@
 ﻿; (function ($, window, document, undefined) {
-    // undefined is used here as the undefined global variable in ECMAScript 3 is
-    // mutable (ie. it can be changed by someone else). undefined isn't really being
-    // passed in so we can ensure the value of it is truly undefined. In ES5, undefined
-    // can no longer be modified.
-    // window and document are passed through as local variable rather than global
-    // as this (slightly) quickens the resolution process and can be more efficiently
-    // minified (especially when both are regularly referenced in your plugin).
-    // Create the defaults once
     var pluginName = "BootstrapGrid",
 
     grid = {
-        jsonData: null,
-        selectionData: null,
-        totalRows: 0
-    },
+        jsonData: null,                                 //received json-data for grid (complete list)
+        selectionData: null,                            //temporary filtered list (subset of jsonData)
+        totalRows: 0                                    //number of total rows (based on selectionData)
+    };
 
     defaults = {
         requestURL: null,
-        debug: true,                   //debug status of grid
-        parent: undefined,                          //element the grid is build in
-        parentRow: undefined,                          //parent row of grid
-        data: undefined,                          //complete json data
-        dataSelection: undefined,                          //json data selection (e.g. after searching)
-        tableHeadConversionArray: undefined,                          //array with column name conversion
-        tableHeadData: new Array(),                        //array of available columns with status data of column
+        debug: true,                                    //debug status of grid
+        parent: undefined,                              //element the grid is build in
+        parentRow: undefined,                           //parent row of grid
+        data: undefined,                                //complete json data
+        dataSelection: undefined,                       //json data selection (e.g. after searching)
+        tableHeadConversionArray: undefined,            //array with column name conversion
+        tableHeadData: new Array(),                     //array of available columns with status data of column
         sortColumn: 0,                                  //column to sort
-        sortDirection: 'asc',                              //sort direction of column
-        isInitialized: true,                               //internal status for some sorting stuff after initialization
-        totalRows: 0,                                  //number or rows
+        sortDirection: 'asc',                           //sort direction of column
+        isInitialized: true,                            //internal status for some sorting stuff after initialization
+        totalRows: 0,                                   //number or rows
         totalPages: 1,                                  //number of pages
-        currentPage: 1,                                  //current selected page
-        rowsPerPage: 15,                                 //number of datasets per page
-        rowsArray: new Array(15, 25, 50, 100)          //list of available datasets per page
+        currentPage: 1,                                 //current selected page
+        rowsPerPage: 15,                                //number of datasets per page
+        rowsArray: new Array(15, 25, 50, 100)           //list of available datasets per page
     };
 
     // The actual plugin constructor
     function Plugin(element, options) {
         this.element = element;
-        // jQuery has an extend method which merges the contents of two or
-        // more objects, storing the result in the first object. The first object
-        // is generally empty as we don't want to alter the default options for
-        // future instances of the plugin
         this.settings = $.extend({}, defaults, options);
         this._defaults = defaults;
         this._grid = grid;
@@ -57,7 +45,7 @@
         },
 
         requestJsonData: function () {
-            alert(this.settings.requestURL);
+            plugin = this;
             $.ajax({
                 url:        this.settings.requestURL,
                 type:       'GET',
@@ -66,22 +54,24 @@
                                 Application.Loader.Show();
                             },
                 success:    function (data) {
-                                this._grid.jsonData = jQuery.parseJSON(data);
-                                if (typeof this._grid.jsonData == 'object') {
-                                    this._grid.selectionData = this._grid.jsonData;
-                                    this._grid.totalRows = this._grid.selectionData.length;                        
+                                plugin._grid.jsonData = jQuery.parseJSON(data);
+                                if (typeof plugin._grid.jsonData == 'object') {
+                                    plugin._grid.selectionData = plugin._grid.jsonData;
+                                    plugin._grid.totalRows = plugin._grid.selectionData.length;
                                 } else {
                                     alert('shit happens');
                                 }
                                 Application.Loader.Hide();
                             },
                 error:      function (data) {
-                                if (this.settings.debug) {
+                                if (plugin.settings.debug) {
                                     console.log(data);
                                 }
                                 Application.Loader.Hide();
                             }
             });
+
+            return this;
         },
 
         yourOtherFunction: function () {
@@ -89,15 +79,13 @@
         }
     });
 
-    // A really lightweight plugin wrapper around the constructor,
-    // preventing against multiple instantiations
+    // plugin wrapper (prevent multiple instancing)
     $.fn[pluginName] = function (options) {
         this.each(function () {
             if (!$.data(this, "plugin_" + pluginName)) {
                 $.data(this, "plugin_" + pluginName, new Plugin(this, options));
             }
         });
-        // chain jQuery functions
         return this;
     };
 })(jQuery, window, document);
